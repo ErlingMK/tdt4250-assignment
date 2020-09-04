@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exercise:Programme
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:exercise="platform:/plugin/tdt4250/model"
+    xsi:schemaLocation="platform:/plugin/tdt4250/model exersice.ecore">
+  <years yearOfProgramme="1">
+    <specialisations
+        name="Programvarsystemer">
+      <semesters>
+        <courseGroups/>
+      </semesters>
+      <semesters
+          timeOfYear="spring">
+        <courseGroups/>
+        <courseGroups/>
+      </semesters>
+    </specialisations>
+    <specialisations
+        name="Databaser og søk"/>
+    <specialisations
+        name="Algdat"/>
+    <specialisations
+        name="AI"/>
+  </years>
+  <years yearOfProgramme="2">
+    <semesters/>
+    <semesters
+        timeOfYear="spring"/>
+  </years>
+</exercise:Programme>

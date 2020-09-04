@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/tdt4250/src" modelPluginID="tdt4250" modelName="Exercise"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>exersice.ecore</foreignModel>
+  <genPackages prefix="Exercise" disposableProviderFactory="true" ecorePackage="exersice.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="exersice.ecore#//TimeOfYear">
+      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//TimeOfYear/fall"/>
+      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//TimeOfYear/spring"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="exersice.ecore#//Field">
+      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//Field/computerScience"/>
+      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//Field/medicine"/>
+    </genEnums>
+    <genClasses ecoreClass="exersice.ecore#//Course">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/credits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/level"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//Year">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Year/yearOfProgramme"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Year/semesters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Year/specialisations"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//Programme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Programme/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Programme/years"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//Specialisation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//Specialisation/semesters"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//Semester">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Semester/timeOfYear"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Semester/courseGroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Semester/courseCriteriums"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//CourseCriteria">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseCriteria/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseCriteria/field"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//CourseGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseGroup/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//CourseGroup/courses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseGroup/mandatoryCourses"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//NTNU">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/courses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/programmes"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
