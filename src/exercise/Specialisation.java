@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link exercise.Specialisation#getStartYear <em>Start Year</em>}</li>
  *   <li>{@link exercise.Specialisation#getDuration <em>Duration</em>}</li>
  *   <li>{@link exercise.Specialisation#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link exercise.Specialisation#getPercentOfProgramme <em>Percent Of Programme</em>}</li>
  * </ul>
  *
  * @see exercise.ExercisePackage#getSpecialisation()
@@ -102,5 +103,16 @@ public interface Specialisation extends EObject {
 	 * @generated
 	 */
 	EList<Semester> getSemesters();
+
+	/**
+	 * Returns the value of the '<em><b>Percent Of Programme</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Percent Of Programme</em>' attribute.
+	 * @see exercise.ExercisePackage#getSpecialisation_PercentOfProgramme()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	double getPercentOfProgramme();
 
 } // Specialisation

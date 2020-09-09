@@ -11,6 +11,7 @@
         numberOfYears="2">
       <specialisations
           name="Programvaresystemer"
+          duration="2"
           semesters="//@studyPlans.0/@programme/@semesters.0 //@studyPlans.0/@programme/@semesters.1 //@studyPlans.0/@programme/@semesters.2 //@studyPlans.0/@programme/@semesters.3"/>
       <semesters>
         <courseGroups

@@ -145,4 +145,16 @@ public interface Semester extends EObject {
 	 */
 	EList<String> getMandatoryCourses();
 
+	/**
+	 * Returns the value of the '<em><b>Mandatory Courses</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mandatory Courses</em>' attribute list.
+	 * @see exercise.ExercisePackage#getSemester_MandatoryCourses()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getMandatoryCourses();
+
 } // Semester

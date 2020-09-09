@@ -32,6 +32,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/startYear"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/duration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//Specialisation/semesters"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/percentOfProgramme"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//Semester">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Semester/timeOfYear"/>

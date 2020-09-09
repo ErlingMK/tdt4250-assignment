@@ -328,6 +328,15 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSpecialisation_PercentOfProgramme() {
+		return (EAttribute)specialisationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSemester() {
 		return semesterEClass;
 	}
@@ -375,6 +384,15 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 */
 	public EReference getSemester_CourseCriteria() {
 		return (EReference)semesterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSemester_MandatoryCourses() {
+		return (EAttribute)semesterEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -585,6 +603,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		createEAttribute(specialisationEClass, SPECIALISATION__START_YEAR);
 		createEAttribute(specialisationEClass, SPECIALISATION__DURATION);
 		createEReference(specialisationEClass, SPECIALISATION__SEMESTERS);
+		createEAttribute(specialisationEClass, SPECIALISATION__PERCENT_OF_PROGRAMME);
 
 		semesterEClass = createEClass(SEMESTER);
 		createEAttribute(semesterEClass, SEMESTER__TIME_OF_YEAR);
@@ -667,6 +686,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEAttribute(getSpecialisation_StartYear(), ecorePackage.getEInt(), "startYear", null, 0, 1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpecialisation_Duration(), ecorePackage.getEInt(), "duration", null, 0, 1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSpecialisation_Semesters(), this.getSemester(), null, "semesters", null, 0, -1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecialisation_PercentOfProgramme(), ecorePackage.getEDouble(), "percentOfProgramme", null, 0, 1, Specialisation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(semesterEClass, Semester.class, "Semester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemester_TimeOfYear(), this.getTimeOfYear(), "timeOfYear", null, 1, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

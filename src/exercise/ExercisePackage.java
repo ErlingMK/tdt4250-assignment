@@ -242,13 +242,22 @@ public interface ExercisePackage extends EPackage {
 	int SPECIALISATION__SEMESTERS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Percent Of Programme</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIALISATION__PERCENT_OF_PROGRAMME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Specialisation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIALISATION_FEATURE_COUNT = 4;
+	int SPECIALISATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Specialisation</em>' class.
@@ -313,6 +322,15 @@ public interface ExercisePackage extends EPackage {
 	 * @ordered
 	 */
 	int SEMESTER__COURSE_CRITERIA = 4;
+
+	/**
+	 * The feature id for the '<em><b>Mandatory Courses</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__MANDATORY_COURSES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Mandatory Courses</b></em>' attribute list.
@@ -766,6 +784,17 @@ public interface ExercisePackage extends EPackage {
 	EReference getSpecialisation_Semesters();
 
 	/**
+	 * Returns the meta object for the attribute '{@link exercise.Specialisation#getPercentOfProgramme <em>Percent Of Programme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Percent Of Programme</em>'.
+	 * @see exercise.Specialisation#getPercentOfProgramme()
+	 * @see #getSpecialisation()
+	 * @generated
+	 */
+	EAttribute getSpecialisation_PercentOfProgramme();
+
+	/**
 	 * Returns the meta object for class '{@link exercise.Semester <em>Semester</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -829,6 +858,17 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSemester_CourseCriteria();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link exercise.Semester#getMandatoryCourses <em>Mandatory Courses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mandatory Courses</em>'.
+	 * @see exercise.Semester#getMandatoryCourses()
+	 * @see #getSemester()
+	 * @generated
+	 */
+	EAttribute getSemester_MandatoryCourses();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link exercise.Semester#getMandatoryCourses <em>Mandatory Courses</em>}'.
@@ -1179,6 +1219,14 @@ public interface ExercisePackage extends EPackage {
 		EReference SPECIALISATION__SEMESTERS = eINSTANCE.getSpecialisation_Semesters();
 
 		/**
+		 * The meta object literal for the '<em><b>Percent Of Programme</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIALISATION__PERCENT_OF_PROGRAMME = eINSTANCE.getSpecialisation_PercentOfProgramme();
+
+		/**
 		 * The meta object literal for the '{@link exercise.impl.SemesterImpl <em>Semester</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1227,6 +1275,14 @@ public interface ExercisePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SEMESTER__COURSE_CRITERIA = eINSTANCE.getSemester_CourseCriteria();
+
+		/**
+		 * The meta object literal for the '<em><b>Mandatory Courses</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEMESTER__MANDATORY_COURSES = eINSTANCE.getSemester_MandatoryCourses();
 
 		/**
 		 * The meta object literal for the '<em><b>Mandatory Courses</b></em>' attribute list feature.

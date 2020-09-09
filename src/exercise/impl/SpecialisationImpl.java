@@ -3,12 +3,14 @@
 package exercise.impl;
 
 import exercise.ExercisePackage;
+import exercise.Programme;
 import exercise.Semester;
 import exercise.Specialisation;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -25,6 +27,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link exercise.impl.SpecialisationImpl#getStartYear <em>Start Year</em>}</li>
  *   <li>{@link exercise.impl.SpecialisationImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link exercise.impl.SpecialisationImpl#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link exercise.impl.SpecialisationImpl#getPercentOfProgramme <em>Percent Of Programme</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +102,16 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<Semester> semesters;
+
+	/**
+	 * The default value of the '{@link #getPercentOfProgramme() <em>Percent Of Programme</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPercentOfProgramme()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double PERCENT_OF_PROGRAMME_EDEFAULT = 0.0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,6 +210,16 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public double getPercentOfProgramme() {
+		Programme parent = (Programme)this.eContainer();
+		return this.duration / parent.getNumberOfYears();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -210,6 +233,8 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 				return getDuration();
 			case ExercisePackage.SPECIALISATION__SEMESTERS:
 				return getSemesters();
+			case ExercisePackage.SPECIALISATION__PERCENT_OF_PROGRAMME:
+				return getPercentOfProgramme();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -280,6 +305,8 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 				return duration != DURATION_EDEFAULT;
 			case ExercisePackage.SPECIALISATION__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
+			case ExercisePackage.SPECIALISATION__PERCENT_OF_PROGRAMME:
+				return getPercentOfProgramme() != PERCENT_OF_PROGRAMME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

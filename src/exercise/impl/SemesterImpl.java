@@ -290,6 +290,18 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getMandatoryCourses() {
+		if (mandatoryCourses == null) {
+			mandatoryCourses = new EDataTypeUniqueEList<String>(String.class, this, ExercisePackage.SEMESTER__MANDATORY_COURSES);
+		}
+		return mandatoryCourses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
