@@ -4,8 +4,8 @@ package exercise.impl;
 
 import exercise.CourseCriteria;
 import exercise.ExercisePackage;
-import exercise.Field;
 
+import exercise.Field;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -56,7 +56,7 @@ public class CourseCriteriaImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Field FIELD_EDEFAULT = Field.COMPUTER_SCIENCE;
+	protected static final Field FIELD_EDEFAULT = Field.DATATEKNIKK_OG_INFORMASJONSVITENSKAP;
 
 	/**
 	 * The cached value of the '{@link #getField() <em>Field</em>}' attribute.

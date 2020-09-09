@@ -31,15 +31,6 @@ public interface ExerciseFactory extends EFactory {
 	Course createCourse();
 
 	/**
-	 * Returns a new object of class '<em>Year</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Year</em>'.
-	 * @generated
-	 */
-	Year createYear();
-
-	/**
 	 * Returns a new object of class '<em>Programme</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +74,15 @@ public interface ExerciseFactory extends EFactory {
 	 * @generated
 	 */
 	CourseGroup createCourseGroup();
+
+	/**
+	 * Returns a new object of class '<em>Study Plan</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Study Plan</em>'.
+	 * @generated
+	 */
+	StudyPlan createStudyPlan();
 
 	/**
 	 * Returns a new object of class '<em>NTNU</em>'.

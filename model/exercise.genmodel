@@ -10,32 +10,32 @@
       <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//TimeOfYear/spring"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="exersice.ecore#//Field">
-      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//Field/computerScience"/>
-      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//Field/medicine"/>
+      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//Field/Datateknikk_og_informasjonsvitenskap"/>
+      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//Field/Datateknikk"/>
+      <genEnumLiterals ecoreEnumLiteral="exersice.ecore#//Field/Informatikk"/>
     </genEnums>
     <genClasses ecoreClass="exersice.ecore#//Course">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/code"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/credits"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/level"/>
-    </genClasses>
-    <genClasses ecoreClass="exersice.ecore#//Year">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Year/yearOfProgramme"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Year/semesters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Year/specialisations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Course/fields"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//Programme">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Programme/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Programme/years"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Programme/specialisation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Programme/semesters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Programme/numberOfYears"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//Specialisation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//Specialisation/semesters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/startYear"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//Semester">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Semester/timeOfYear"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Semester/courseGroups"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Semester/courseCriteriums"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Semester/year"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference exersice.ecore#//Semester/programme"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//CourseCriteria">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseCriteria/level"/>
@@ -45,10 +45,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseGroup/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//CourseGroup/courses"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseGroup/mandatoryCourses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//CourseGroup/courseCriteria"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//StudyPlan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//StudyPlan/programme"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//NTNU">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/studyPlans"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/courses"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/programmes"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

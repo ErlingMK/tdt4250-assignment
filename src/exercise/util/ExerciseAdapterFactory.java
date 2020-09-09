@@ -72,10 +72,6 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 				return createCourseAdapter();
 			}
 			@Override
-			public Adapter caseYear(Year object) {
-				return createYearAdapter();
-			}
-			@Override
 			public Adapter caseProgramme(Programme object) {
 				return createProgrammeAdapter();
 			}
@@ -94,6 +90,10 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCourseGroup(CourseGroup object) {
 				return createCourseGroupAdapter();
+			}
+			@Override
+			public Adapter caseStudyPlan(StudyPlan object) {
+				return createStudyPlanAdapter();
 			}
 			@Override
 			public Adapter caseNTNU(NTNU object) {
@@ -130,20 +130,6 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCourseAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link exercise.Year <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see exercise.Year
-	 * @generated
-	 */
-	public Adapter createYearAdapter() {
 		return null;
 	}
 
@@ -214,6 +200,20 @@ public class ExerciseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCourseGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link exercise.StudyPlan <em>Study Plan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see exercise.StudyPlan
+	 * @generated
+	 */
+	public Adapter createStudyPlanAdapter() {
 		return null;
 	}
 

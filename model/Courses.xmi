@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exercise:NTNU xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exercise="platform:/plugin/tdt4250/model" xsi:schemaLocation="platform:/plugin/tdt4250/model exersice.ecore">
+  <courses code="IT3402" credits="7.5" name="Design av grafiske brukergrensesnitt" level="3">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+  <courses code="TDT4250" credits="7.5" name="Avansert programvaredesign" level="3">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+  <courses code="TDT4175" credits="7.5" name="Informasjonssystemer" level="3">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+  <courses code="TDT4117" credits="7.5" name="Informasjonsgjenfinning" level="3">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+  <courses code="TDT4242" credits="7.5" name="Avansert programvareutvikling" level="3">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+  <courses code="TDT4237" credits="7.5" name="Programvaresikkerhet" level="3">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+  <courses code="TDT4215" credits="7.5" name="Anbefalingssystemer" level="3">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+  <courses code="IT3022" credits="7.5" name="Deltagende design" level="3">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+  <courses code="TDT4900" credits="30.0" name="Masteroppgave" level="5">
+    <fields>Datateknikk_og_informasjonsvitenskap</fields>
+  </courses>
+</exercise:NTNU>

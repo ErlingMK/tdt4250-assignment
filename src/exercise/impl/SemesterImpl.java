@@ -2,9 +2,9 @@
  */
 package exercise.impl;
 
-import exercise.CourseCriteria;
 import exercise.CourseGroup;
 import exercise.ExercisePackage;
+import exercise.Programme;
 import exercise.Semester;
 import exercise.TimeOfYear;
 
@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,7 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link exercise.impl.SemesterImpl#getTimeOfYear <em>Time Of Year</em>}</li>
  *   <li>{@link exercise.impl.SemesterImpl#getCourseGroups <em>Course Groups</em>}</li>
- *   <li>{@link exercise.impl.SemesterImpl#getCourseCriteriums <em>Course Criteriums</em>}</li>
+ *   <li>{@link exercise.impl.SemesterImpl#getYear <em>Year</em>}</li>
+ *   <li>{@link exercise.impl.SemesterImpl#getProgramme <em>Programme</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,14 +73,24 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	protected EList<CourseGroup> courseGroups;
 
 	/**
-	 * The cached value of the '{@link #getCourseCriteriums() <em>Course Criteriums</em>}' containment reference list.
+	 * The default value of the '{@link #getYear() <em>Year</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCourseCriteriums()
+	 * @see #getYear()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CourseCriteria> courseCriteriums;
+	protected static final int YEAR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected int year = YEAR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,11 +149,77 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CourseCriteria> getCourseCriteriums() {
-		if (courseCriteriums == null) {
-			courseCriteriums = new EObjectContainmentEList<CourseCriteria>(CourseCriteria.class, this, ExercisePackage.SEMESTER__COURSE_CRITERIUMS);
+	public int getYear() {
+		return year;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setYear(int newYear) {
+		int oldYear = year;
+		year = newYear;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.SEMESTER__YEAR, oldYear, year));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Programme getProgramme() {
+		if (eContainerFeatureID() != ExercisePackage.SEMESTER__PROGRAMME) return null;
+		return (Programme)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProgramme(Programme newProgramme, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProgramme, ExercisePackage.SEMESTER__PROGRAMME, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProgramme(Programme newProgramme) {
+		if (newProgramme != eInternalContainer() || (eContainerFeatureID() != ExercisePackage.SEMESTER__PROGRAMME && newProgramme != null)) {
+			if (EcoreUtil.isAncestor(this, newProgramme))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newProgramme != null)
+				msgs = ((InternalEObject)newProgramme).eInverseAdd(this, ExercisePackage.PROGRAMME__SEMESTERS, Programme.class, msgs);
+			msgs = basicSetProgramme(newProgramme, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return courseCriteriums;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.SEMESTER__PROGRAMME, newProgramme, newProgramme));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExercisePackage.SEMESTER__PROGRAMME:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetProgramme((Programme)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -154,10 +232,24 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 		switch (featureID) {
 			case ExercisePackage.SEMESTER__COURSE_GROUPS:
 				return ((InternalEList<?>)getCourseGroups()).basicRemove(otherEnd, msgs);
-			case ExercisePackage.SEMESTER__COURSE_CRITERIUMS:
-				return ((InternalEList<?>)getCourseCriteriums()).basicRemove(otherEnd, msgs);
+			case ExercisePackage.SEMESTER__PROGRAMME:
+				return basicSetProgramme(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ExercisePackage.SEMESTER__PROGRAMME:
+				return eInternalContainer().eInverseRemove(this, ExercisePackage.PROGRAMME__SEMESTERS, Programme.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -172,8 +264,10 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return getTimeOfYear();
 			case ExercisePackage.SEMESTER__COURSE_GROUPS:
 				return getCourseGroups();
-			case ExercisePackage.SEMESTER__COURSE_CRITERIUMS:
-				return getCourseCriteriums();
+			case ExercisePackage.SEMESTER__YEAR:
+				return getYear();
+			case ExercisePackage.SEMESTER__PROGRAMME:
+				return getProgramme();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -194,9 +288,11 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				getCourseGroups().clear();
 				getCourseGroups().addAll((Collection<? extends CourseGroup>)newValue);
 				return;
-			case ExercisePackage.SEMESTER__COURSE_CRITERIUMS:
-				getCourseCriteriums().clear();
-				getCourseCriteriums().addAll((Collection<? extends CourseCriteria>)newValue);
+			case ExercisePackage.SEMESTER__YEAR:
+				setYear((Integer)newValue);
+				return;
+			case ExercisePackage.SEMESTER__PROGRAMME:
+				setProgramme((Programme)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,8 +312,11 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 			case ExercisePackage.SEMESTER__COURSE_GROUPS:
 				getCourseGroups().clear();
 				return;
-			case ExercisePackage.SEMESTER__COURSE_CRITERIUMS:
-				getCourseCriteriums().clear();
+			case ExercisePackage.SEMESTER__YEAR:
+				setYear(YEAR_EDEFAULT);
+				return;
+			case ExercisePackage.SEMESTER__PROGRAMME:
+				setProgramme((Programme)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -235,8 +334,10 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return timeOfYear != TIME_OF_YEAR_EDEFAULT;
 			case ExercisePackage.SEMESTER__COURSE_GROUPS:
 				return courseGroups != null && !courseGroups.isEmpty();
-			case ExercisePackage.SEMESTER__COURSE_CRITERIUMS:
-				return courseCriteriums != null && !courseCriteriums.isEmpty();
+			case ExercisePackage.SEMESTER__YEAR:
+				return year != YEAR_EDEFAULT;
+			case ExercisePackage.SEMESTER__PROGRAMME:
+				return getProgramme() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -253,6 +354,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (timeOfYear: ");
 		result.append(timeOfYear);
+		result.append(", year: ");
+		result.append(year);
 		result.append(')');
 		return result.toString();
 	}

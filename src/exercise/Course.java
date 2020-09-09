@@ -2,6 +2,7 @@
  */
 package exercise;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link exercise.Course#getCredits <em>Credits</em>}</li>
  *   <li>{@link exercise.Course#getName <em>Name</em>}</li>
  *   <li>{@link exercise.Course#getLevel <em>Level</em>}</li>
+ *   <li>{@link exercise.Course#getFields <em>Fields</em>}</li>
  * </ul>
  *
  * @see exercise.ExercisePackage#getCourse()
@@ -111,5 +113,19 @@ public interface Course extends EObject {
 	 * @generated
 	 */
 	void setLevel(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Fields</b></em>' attribute list.
+	 * The list contents are of type {@link exercise.Field}.
+	 * The literals are from the enumeration {@link exercise.Field}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fields</em>' attribute list.
+	 * @see exercise.Field
+	 * @see exercise.ExercisePackage#getCourse_Fields()
+	 * @model
+	 * @generated
+	 */
+	EList<Field> getFields();
 
 } // Course

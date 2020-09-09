@@ -3,24 +3,11 @@
 package exercise.impl;
 
 import exercise.ExercisePackage;
-import exercise.Semester;
 import exercise.Specialisation;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +18,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link exercise.impl.SpecialisationImpl#getName <em>Name</em>}</li>
- *   <li>{@link exercise.impl.SpecialisationImpl#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link exercise.impl.SpecialisationImpl#getStartYear <em>Start Year</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +33,7 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,15 +43,26 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
 	/**
-	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' containment reference list.
+	 * The default value of the '{@link #getStartYear() <em>Start Year</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSemesters()
+	 * @see #getStartYear()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Semester> semesters;
+	protected static final int START_YEAR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getStartYear() <em>Start Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected int startYear = START_YEAR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,11 +109,8 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Semester> getSemesters() {
-		if (semesters == null) {
-			semesters = new EObjectContainmentEList<Semester>(Semester.class, this, ExercisePackage.SPECIALISATION__SEMESTERS);
-		}
-		return semesters;
+	public int getStartYear() {
+		return startYear;
 	}
 
 	/**
@@ -122,13 +118,11 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ExercisePackage.SPECIALISATION__SEMESTERS:
-				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setStartYear(int newStartYear) {
+		int oldStartYear = startYear;
+		startYear = newStartYear;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.SPECIALISATION__START_YEAR, oldStartYear, startYear));
 	}
 
 	/**
@@ -141,8 +135,8 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case ExercisePackage.SPECIALISATION__NAME:
 				return getName();
-			case ExercisePackage.SPECIALISATION__SEMESTERS:
-				return getSemesters();
+			case ExercisePackage.SPECIALISATION__START_YEAR:
+				return getStartYear();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,9 +153,8 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 			case ExercisePackage.SPECIALISATION__NAME:
 				setName((String)newValue);
 				return;
-			case ExercisePackage.SPECIALISATION__SEMESTERS:
-				getSemesters().clear();
-				getSemesters().addAll((Collection<? extends Semester>)newValue);
+			case ExercisePackage.SPECIALISATION__START_YEAR:
+				setStartYear((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,8 +171,8 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 			case ExercisePackage.SPECIALISATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ExercisePackage.SPECIALISATION__SEMESTERS:
-				getSemesters().clear();
+			case ExercisePackage.SPECIALISATION__START_YEAR:
+				setStartYear(START_YEAR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -195,8 +188,8 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case ExercisePackage.SPECIALISATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ExercisePackage.SPECIALISATION__SEMESTERS:
-				return semesters != null && !semesters.isEmpty();
+			case ExercisePackage.SPECIALISATION__START_YEAR:
+				return startYear != START_YEAR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,6 +206,8 @@ public class SpecialisationImpl extends MinimalEObjectImpl.Container implements 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", startYear: ");
+		result.append(startYear);
 		result.append(')');
 		return result.toString();
 	}

@@ -16,11 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link exercise.Programme#getName <em>Name</em>}</li>
- *   <li>{@link exercise.Programme#getYears <em>Years</em>}</li>
+ *   <li>{@link exercise.Programme#getSpecialisation <em>Specialisation</em>}</li>
+ *   <li>{@link exercise.Programme#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link exercise.Programme#getNumberOfYears <em>Number Of Years</em>}</li>
  * </ul>
  *
  * @see exercise.ExercisePackage#getProgramme()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='validateMaxNumberOfSemesters'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 validateMaxNumberOfSemesters='self.semesters-&gt;size() &lt;= self.numberOfYears*2'"
  * @generated
  */
 public interface Programme extends EObject {
@@ -47,15 +50,61 @@ public interface Programme extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Years</b></em>' containment reference list.
-	 * The list contents are of type {@link exercise.Year}.
+	 * Returns the value of the '<em><b>Specialisation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Years</em>' containment reference list.
-	 * @see exercise.ExercisePackage#getProgramme_Years()
-	 * @model containment="true" lower="2" upper="5"
+	 * @return the value of the '<em>Specialisation</em>' containment reference.
+	 * @see #setSpecialisation(Specialisation)
+	 * @see exercise.ExercisePackage#getProgramme_Specialisation()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Year> getYears();
+	Specialisation getSpecialisation();
+
+	/**
+	 * Sets the value of the '{@link exercise.Programme#getSpecialisation <em>Specialisation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specialisation</em>' containment reference.
+	 * @see #getSpecialisation()
+	 * @generated
+	 */
+	void setSpecialisation(Specialisation value);
+
+	/**
+	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.
+	 * The list contents are of type {@link exercise.Semester}.
+	 * It is bidirectional and its opposite is '{@link exercise.Semester#getProgramme <em>Programme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Semesters</em>' containment reference list.
+	 * @see exercise.ExercisePackage#getProgramme_Semesters()
+	 * @see exercise.Semester#getProgramme
+	 * @model opposite="programme" containment="true" lower="4" upper="10"
+	 * @generated
+	 */
+	EList<Semester> getSemesters();
+
+	/**
+	 * Returns the value of the '<em><b>Number Of Years</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Number Of Years</em>' attribute.
+	 * @see #setNumberOfYears(int)
+	 * @see exercise.ExercisePackage#getProgramme_NumberOfYears()
+	 * @model
+	 * @generated
+	 */
+	int getNumberOfYears();
+
+	/**
+	 * Sets the value of the '{@link exercise.Programme#getNumberOfYears <em>Number Of Years</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Number Of Years</em>' attribute.
+	 * @see #getNumberOfYears()
+	 * @generated
+	 */
+	void setNumberOfYears(int value);
 
 } // Programme

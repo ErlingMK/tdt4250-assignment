@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface StudyPlan extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Programme</b></em>' reference.
+	 * Returns the value of the '<em><b>Programme</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Programme</em>' reference.
+	 * @return the value of the '<em>Programme</em>' containment reference.
 	 * @see #setProgramme(Programme)
 	 * @see exercise.ExercisePackage#getStudyPlan_Programme()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Programme getProgramme();
 
 	/**
-	 * Sets the value of the '{@link exercise.StudyPlan#getProgramme <em>Programme</em>}' reference.
+	 * Sets the value of the '{@link exercise.StudyPlan#getProgramme <em>Programme</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Programme</em>' reference.
+	 * @param value the new value of the '<em>Programme</em>' containment reference.
 	 * @see #getProgramme()
 	 * @generated
 	 */

@@ -5,12 +5,16 @@ package exercise.impl;
 import exercise.Course;
 import exercise.ExercisePackage;
 
+import exercise.Field;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link exercise.impl.CourseImpl#getCredits <em>Credits</em>}</li>
  *   <li>{@link exercise.impl.CourseImpl#getName <em>Name</em>}</li>
  *   <li>{@link exercise.impl.CourseImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link exercise.impl.CourseImpl#getFields <em>Fields</em>}</li>
  * </ul>
  *
  * @generated
@@ -108,6 +113,16 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * @ordered
 	 */
 	protected int level = LEVEL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Field> fields;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,6 +232,18 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Field> getFields() {
+		if (fields == null) {
+			fields = new EDataTypeUniqueEList<Field>(Field.class, this, ExercisePackage.COURSE__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -228,6 +255,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return getName();
 			case ExercisePackage.COURSE__LEVEL:
 				return getLevel();
+			case ExercisePackage.COURSE__FIELDS:
+				return getFields();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,6 +266,7 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -251,6 +281,10 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return;
 			case ExercisePackage.COURSE__LEVEL:
 				setLevel((Integer)newValue);
+				return;
+			case ExercisePackage.COURSE__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends Field>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -276,6 +310,9 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 			case ExercisePackage.COURSE__LEVEL:
 				setLevel(LEVEL_EDEFAULT);
 				return;
+			case ExercisePackage.COURSE__FIELDS:
+				getFields().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -296,6 +333,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ExercisePackage.COURSE__LEVEL:
 				return level != LEVEL_EDEFAULT;
+			case ExercisePackage.COURSE__FIELDS:
+				return fields != null && !fields.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -318,6 +357,8 @@ public class CourseImpl extends MinimalEObjectImpl.Container implements Course {
 		result.append(name);
 		result.append(", level: ");
 		result.append(level);
+		result.append(", fields: ");
+		result.append(fields);
 		result.append(')');
 		return result.toString();
 	}

@@ -2,8 +2,6 @@
  */
 package exercise;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link exercise.Specialisation#getName <em>Name</em>}</li>
- *   <li>{@link exercise.Specialisation#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link exercise.Specialisation#getStartYear <em>Start Year</em>}</li>
  * </ul>
  *
  * @see exercise.ExercisePackage#getSpecialisation()
@@ -47,15 +45,25 @@ public interface Specialisation extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.
-	 * The list contents are of type {@link exercise.Semester}.
+	 * Returns the value of the '<em><b>Start Year</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Semesters</em>' containment reference list.
-	 * @see exercise.ExercisePackage#getSpecialisation_Semesters()
-	 * @model containment="true" upper="4"
+	 * @return the value of the '<em>Start Year</em>' attribute.
+	 * @see #setStartYear(int)
+	 * @see exercise.ExercisePackage#getSpecialisation_StartYear()
+	 * @model
 	 * @generated
 	 */
-	EList<Semester> getSemesters();
+	int getStartYear();
+
+	/**
+	 * Sets the value of the '{@link exercise.Specialisation#getStartYear <em>Start Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start Year</em>' attribute.
+	 * @see #getStartYear()
+	 * @generated
+	 */
+	void setStartYear(int value);
 
 } // Specialisation

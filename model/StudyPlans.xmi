@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exercise:NTNU
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:exercise="platform:/plugin/tdt4250/model"
+    xsi:schemaLocation="platform:/plugin/tdt4250/model exersice.ecore">
+  <studyPlans>
+    <programme
+        name="Datateknologi"
+        numberOfYears="2">
+      <specialisations
+          name="Programvaresystemer"
+          semesters="//@studyPlans.0/@programme/@semesters.0 //@studyPlans.0/@programme/@semesters.1 //@studyPlans.0/@programme/@semesters.2 //@studyPlans.0/@programme/@semesters.3"/>
+      <semesters>
+        <courseGroups
+            name="Obligatoriske og valgbare emner">
+          <courses
+              href="Courses.xmi#//@courses.0"/>
+          <courses
+              href="Courses.xmi#//@courses.1"/>
+          <courses
+              href="Courses.xmi#//@courses.2"/>
+          <courses
+              href="Courses.xmi#//@courses.3"/>
+        </courseGroups>
+        <courseCriteria/>
+        <mandatoryCourses>TDT4175</mandatoryCourses>
+      </semesters>
+      <semesters
+          timeOfYear="spring">
+        <courseGroups
+            name="Obligatoriske og valgbare emner">
+          <courses
+              href="Courses.xmi#//@courses.5"/>
+          <courses
+              href="Courses.xmi#//@courses.6"/>
+          <courses
+              href="Courses.xmi#//@courses.7"/>
+          <courses
+              href="Courses.xmi#//@courses.4"/>
+        </courseGroups>
+      </semesters>
+      <semesters
+          timeOfYear="spring"
+          year="1">
+        <courseGroups
+            name="Fordypningsemner og masteroppgave">
+          <courses
+              href="Courses.xmi#//@courses.8"/>
+        </courseGroups>
+        <mandatoryCourses>TDT4900</mandatoryCourses>
+      </semesters>
+      <semesters
+          year="1">
+        <courseGroups>
+          <courses
+              href="Courses.xmi#//@courses.5"/>
+          <courses
+              href="Courses.xmi#//@courses.6"/>
+          <courses
+              href="Courses.xmi#//@courses.7"/>
+          <courses
+              href="Courses.xmi#//@courses.4"/>
+        </courseGroups>
+      </semesters>
+    </programme>
+  </studyPlans>
+</exercise:NTNU>

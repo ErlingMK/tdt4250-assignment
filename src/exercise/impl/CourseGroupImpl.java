@@ -3,16 +3,19 @@
 package exercise.impl;
 
 import exercise.Course;
+import exercise.CourseCriteria;
 import exercise.CourseGroup;
 import exercise.ExercisePackage;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -31,6 +34,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link exercise.impl.CourseGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link exercise.impl.CourseGroupImpl#getCourses <em>Courses</em>}</li>
  *   <li>{@link exercise.impl.CourseGroupImpl#getMandatoryCourses <em>Mandatory Courses</em>}</li>
+ *   <li>{@link exercise.impl.CourseGroupImpl#getCourseCriteria <em>Course Criteria</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,6 +79,16 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * @ordered
 	 */
 	protected EList<String> mandatoryCourses;
+
+	/**
+	 * The cached value of the '{@link #getCourseCriteria() <em>Course Criteria</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCourseCriteria()
+	 * @generated
+	 * @ordered
+	 */
+	protected CourseCriteria courseCriteria;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +159,63 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CourseCriteria getCourseCriteria() {
+		return courseCriteria;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCourseCriteria(CourseCriteria newCourseCriteria, NotificationChain msgs) {
+		CourseCriteria oldCourseCriteria = courseCriteria;
+		courseCriteria = newCourseCriteria;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExercisePackage.COURSE_GROUP__COURSE_CRITERIA, oldCourseCriteria, newCourseCriteria);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCourseCriteria(CourseCriteria newCourseCriteria) {
+		if (newCourseCriteria != courseCriteria) {
+			NotificationChain msgs = null;
+			if (courseCriteria != null)
+				msgs = ((InternalEObject)courseCriteria).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExercisePackage.COURSE_GROUP__COURSE_CRITERIA, null, msgs);
+			if (newCourseCriteria != null)
+				msgs = ((InternalEObject)newCourseCriteria).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExercisePackage.COURSE_GROUP__COURSE_CRITERIA, null, msgs);
+			msgs = basicSetCourseCriteria(newCourseCriteria, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.COURSE_GROUP__COURSE_CRITERIA, newCourseCriteria, newCourseCriteria));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExercisePackage.COURSE_GROUP__COURSE_CRITERIA:
+				return basicSetCourseCriteria(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -154,6 +225,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 				return getCourses();
 			case ExercisePackage.COURSE_GROUP__MANDATORY_COURSES:
 				return getMandatoryCourses();
+			case ExercisePackage.COURSE_GROUP__COURSE_CRITERIA:
+				return getCourseCriteria();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +251,9 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 				getMandatoryCourses().clear();
 				getMandatoryCourses().addAll((Collection<? extends String>)newValue);
 				return;
+			case ExercisePackage.COURSE_GROUP__COURSE_CRITERIA:
+				setCourseCriteria((CourseCriteria)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -199,6 +275,9 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 			case ExercisePackage.COURSE_GROUP__MANDATORY_COURSES:
 				getMandatoryCourses().clear();
 				return;
+			case ExercisePackage.COURSE_GROUP__COURSE_CRITERIA:
+				setCourseCriteria((CourseCriteria)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,6 +296,8 @@ public class CourseGroupImpl extends MinimalEObjectImpl.Container implements Cou
 				return courses != null && !courses.isEmpty();
 			case ExercisePackage.COURSE_GROUP__MANDATORY_COURSES:
 				return mandatoryCourses != null && !mandatoryCourses.isEmpty();
+			case ExercisePackage.COURSE_GROUP__COURSE_CRITERIA:
+				return courseCriteria != null;
 		}
 		return super.eIsSet(featureID);
 	}

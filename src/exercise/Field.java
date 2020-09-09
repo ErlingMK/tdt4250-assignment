@@ -19,46 +19,67 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Field implements Enumerator {
 	/**
-	 * The '<em><b>Computer Science</b></em>' literal object.
+	 * The '<em><b>Datateknikk og informasjonsvitenskap</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COMPUTER_SCIENCE_VALUE
+	 * @see #DATATEKNIKK_OG_INFORMASJONSVITENSKAP_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	COMPUTER_SCIENCE(0, "computerScience", "computerScience"),
+	DATATEKNIKK_OG_INFORMASJONSVITENSKAP(0, "Datateknikk_og_informasjonsvitenskap", "Datateknikk_og_informasjonsvitenskap"),
 
 	/**
-	 * The '<em><b>Medicine</b></em>' literal object.
+	 * The '<em><b>Datateknikk</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MEDICINE_VALUE
+	 * @see #DATATEKNIKK_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MEDICINE(1, "medicine", "medicine");
+	DATATEKNIKK(1, "Datateknikk", "Datateknikk"),
 
 	/**
-	 * The '<em><b>Computer Science</b></em>' literal value.
+	 * The '<em><b>Informatikk</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #COMPUTER_SCIENCE
-	 * @model name="computerScience"
+	 * @see #INFORMATIKK_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPUTER_SCIENCE_VALUE = 0;
+	INFORMATIKK(2, "Informatikk", "Informatikk");
 
 	/**
-	 * The '<em><b>Medicine</b></em>' literal value.
+	 * The '<em><b>Datateknikk og informasjonsvitenskap</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MEDICINE
-	 * @model name="medicine"
+	 * @see #DATATEKNIKK_OG_INFORMASJONSVITENSKAP
+	 * @model name="Datateknikk_og_informasjonsvitenskap"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MEDICINE_VALUE = 1;
+	public static final int DATATEKNIKK_OG_INFORMASJONSVITENSKAP_VALUE = 0;
+
+	/**
+	 * The '<em><b>Datateknikk</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATATEKNIKK
+	 * @model name="Datateknikk"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATATEKNIKK_VALUE = 1;
+
+	/**
+	 * The '<em><b>Informatikk</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INFORMATIKK
+	 * @model name="Informatikk"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int INFORMATIKK_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>Field</b></em>' enumerators.
@@ -68,8 +89,9 @@ public enum Field implements Enumerator {
 	 */
 	private static final Field[] VALUES_ARRAY =
 		new Field[] {
-			COMPUTER_SCIENCE,
-			MEDICINE,
+			DATATEKNIKK_OG_INFORMASJONSVITENSKAP,
+			DATATEKNIKK,
+			INFORMATIKK,
 		};
 
 	/**
@@ -126,8 +148,9 @@ public enum Field implements Enumerator {
 	 */
 	public static Field get(int value) {
 		switch (value) {
-			case COMPUTER_SCIENCE_VALUE: return COMPUTER_SCIENCE;
-			case MEDICINE_VALUE: return MEDICINE;
+			case DATATEKNIKK_OG_INFORMASJONSVITENSKAP_VALUE: return DATATEKNIKK_OG_INFORMASJONSVITENSKAP;
+			case DATATEKNIKK_VALUE: return DATATEKNIKK;
+			case INFORMATIKK_VALUE: return INFORMATIKK;
 		}
 		return null;
 	}
