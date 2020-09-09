@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link exercise.Semester#getCourseGroups <em>Course Groups</em>}</li>
  *   <li>{@link exercise.Semester#getYear <em>Year</em>}</li>
  *   <li>{@link exercise.Semester#getProgramme <em>Programme</em>}</li>
+ *   <li>{@link exercise.Semester#getCourseCriteria <em>Course Criteria</em>}</li>
+ *   <li>{@link exercise.Semester#getMandatoryCourses <em>Mandatory Courses</em>}</li>
  * </ul>
  *
  * @see exercise.ExercisePackage#getSemester()
@@ -108,5 +110,39 @@ public interface Semester extends EObject {
 	 * @generated
 	 */
 	void setProgramme(Programme value);
+
+	/**
+	 * Returns the value of the '<em><b>Course Criteria</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Course Criteria</em>' containment reference.
+	 * @see #setCourseCriteria(CourseCriteria)
+	 * @see exercise.ExercisePackage#getSemester_CourseCriteria()
+	 * @model containment="true"
+	 * @generated
+	 */
+	CourseCriteria getCourseCriteria();
+
+	/**
+	 * Sets the value of the '{@link exercise.Semester#getCourseCriteria <em>Course Criteria</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Course Criteria</em>' containment reference.
+	 * @see #getCourseCriteria()
+	 * @generated
+	 */
+	void setCourseCriteria(CourseCriteria value);
+
+	/**
+	 * Returns the value of the '<em><b>Mandatory Courses</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mandatory Courses</em>' attribute list.
+	 * @see exercise.ExercisePackage#getSemester_MandatoryCourses()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getMandatoryCourses();
 
 } // Semester

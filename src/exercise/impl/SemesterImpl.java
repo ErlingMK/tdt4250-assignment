@@ -2,6 +2,7 @@
  */
 package exercise.impl;
 
+import exercise.CourseCriteria;
 import exercise.CourseGroup;
 import exercise.ExercisePackage;
 import exercise.Programme;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,6 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link exercise.impl.SemesterImpl#getCourseGroups <em>Course Groups</em>}</li>
  *   <li>{@link exercise.impl.SemesterImpl#getYear <em>Year</em>}</li>
  *   <li>{@link exercise.impl.SemesterImpl#getProgramme <em>Programme</em>}</li>
+ *   <li>{@link exercise.impl.SemesterImpl#getCourseCriteria <em>Course Criteria</em>}</li>
+ *   <li>{@link exercise.impl.SemesterImpl#getMandatoryCourses <em>Mandatory Courses</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +95,26 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @ordered
 	 */
 	protected int year = YEAR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCourseCriteria() <em>Course Criteria</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCourseCriteria()
+	 * @generated
+	 * @ordered
+	 */
+	protected CourseCriteria courseCriteria;
+
+	/**
+	 * The cached value of the '{@link #getMandatoryCourses() <em>Mandatory Courses</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMandatoryCourses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> mandatoryCourses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -211,6 +235,61 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CourseCriteria getCourseCriteria() {
+		return courseCriteria;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCourseCriteria(CourseCriteria newCourseCriteria, NotificationChain msgs) {
+		CourseCriteria oldCourseCriteria = courseCriteria;
+		courseCriteria = newCourseCriteria;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExercisePackage.SEMESTER__COURSE_CRITERIA, oldCourseCriteria, newCourseCriteria);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCourseCriteria(CourseCriteria newCourseCriteria) {
+		if (newCourseCriteria != courseCriteria) {
+			NotificationChain msgs = null;
+			if (courseCriteria != null)
+				msgs = ((InternalEObject)courseCriteria).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExercisePackage.SEMESTER__COURSE_CRITERIA, null, msgs);
+			if (newCourseCriteria != null)
+				msgs = ((InternalEObject)newCourseCriteria).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExercisePackage.SEMESTER__COURSE_CRITERIA, null, msgs);
+			msgs = basicSetCourseCriteria(newCourseCriteria, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.SEMESTER__COURSE_CRITERIA, newCourseCriteria, newCourseCriteria));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getMandatoryCourses() {
+		if (mandatoryCourses == null) {
+			mandatoryCourses = new EDataTypeUniqueEList<String>(String.class, this, ExercisePackage.SEMESTER__MANDATORY_COURSES);
+		}
+		return mandatoryCourses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -234,6 +313,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return ((InternalEList<?>)getCourseGroups()).basicRemove(otherEnd, msgs);
 			case ExercisePackage.SEMESTER__PROGRAMME:
 				return basicSetProgramme(null, msgs);
+			case ExercisePackage.SEMESTER__COURSE_CRITERIA:
+				return basicSetCourseCriteria(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -268,6 +349,10 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return getYear();
 			case ExercisePackage.SEMESTER__PROGRAMME:
 				return getProgramme();
+			case ExercisePackage.SEMESTER__COURSE_CRITERIA:
+				return getCourseCriteria();
+			case ExercisePackage.SEMESTER__MANDATORY_COURSES:
+				return getMandatoryCourses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +379,13 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 			case ExercisePackage.SEMESTER__PROGRAMME:
 				setProgramme((Programme)newValue);
 				return;
+			case ExercisePackage.SEMESTER__COURSE_CRITERIA:
+				setCourseCriteria((CourseCriteria)newValue);
+				return;
+			case ExercisePackage.SEMESTER__MANDATORY_COURSES:
+				getMandatoryCourses().clear();
+				getMandatoryCourses().addAll((Collection<? extends String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -318,6 +410,12 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 			case ExercisePackage.SEMESTER__PROGRAMME:
 				setProgramme((Programme)null);
 				return;
+			case ExercisePackage.SEMESTER__COURSE_CRITERIA:
+				setCourseCriteria((CourseCriteria)null);
+				return;
+			case ExercisePackage.SEMESTER__MANDATORY_COURSES:
+				getMandatoryCourses().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -338,6 +436,10 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return year != YEAR_EDEFAULT;
 			case ExercisePackage.SEMESTER__PROGRAMME:
 				return getProgramme() != null;
+			case ExercisePackage.SEMESTER__COURSE_CRITERIA:
+				return courseCriteria != null;
+			case ExercisePackage.SEMESTER__MANDATORY_COURSES:
+				return mandatoryCourses != null && !mandatoryCourses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -356,6 +458,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 		result.append(timeOfYear);
 		result.append(", year: ");
 		result.append(year);
+		result.append(", mandatoryCourses: ");
+		result.append(mandatoryCourses);
 		result.append(')');
 		return result.toString();
 	}

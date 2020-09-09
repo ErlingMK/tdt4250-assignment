@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link exercise.StudyPlan#getProgramme <em>Programme</em>}</li>
+ *   <li>{@link exercise.StudyPlan#getStudent <em>Student</em>}</li>
  * </ul>
  *
  * @see exercise.ExercisePackage#getStudyPlan()
@@ -42,5 +43,29 @@ public interface StudyPlan extends EObject {
 	 * @generated
 	 */
 	void setProgramme(Programme value);
+
+	/**
+	 * Returns the value of the '<em><b>Student</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link exercise.Student#getStudyPlan <em>Study Plan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Student</em>' reference.
+	 * @see #setStudent(Student)
+	 * @see exercise.ExercisePackage#getStudyPlan_Student()
+	 * @see exercise.Student#getStudyPlan
+	 * @model opposite="studyPlan"
+	 * @generated
+	 */
+	Student getStudent();
+
+	/**
+	 * Sets the value of the '{@link exercise.StudyPlan#getStudent <em>Student</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Student</em>' reference.
+	 * @see #getStudent()
+	 * @generated
+	 */
+	void setStudent(Student value);
 
 } // StudyPlan

@@ -63,8 +63,9 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 			case ExercisePackage.SEMESTER: return createSemester();
 			case ExercisePackage.COURSE_CRITERIA: return createCourseCriteria();
 			case ExercisePackage.COURSE_GROUP: return createCourseGroup();
-			case ExercisePackage.STUDY_PLAN: return createStudyPlan();
 			case ExercisePackage.NTNU: return createNTNU();
+			case ExercisePackage.STUDY_PLAN: return createStudyPlan();
+			case ExercisePackage.STUDENT: return createStudent();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -172,6 +173,16 @@ public class ExerciseFactoryImpl extends EFactoryImpl implements ExerciseFactory
 	public StudyPlan createStudyPlan() {
 		StudyPlanImpl studyPlan = new StudyPlanImpl();
 		return studyPlan;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Student createStudent() {
+		StudentImpl student = new StudentImpl();
+		return student;
 	}
 
 	/**

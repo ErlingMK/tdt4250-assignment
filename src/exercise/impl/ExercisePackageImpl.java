@@ -11,6 +11,7 @@ import exercise.Field;
 import exercise.Programme;
 import exercise.Semester;
 import exercise.Specialisation;
+import exercise.Student;
 import exercise.StudyPlan;
 import exercise.TimeOfYear;
 
@@ -79,6 +80,13 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	private EClass studyPlanEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass studentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,7 +256,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProgramme_Specialisation() {
+	public EReference getProgramme_Specialisations() {
 		return (EReference)programmeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -302,6 +310,24 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSpecialisation_Duration() {
+		return (EAttribute)specialisationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecialisation_Semesters() {
+		return (EReference)specialisationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSemester() {
 		return semesterEClass;
 	}
@@ -340,6 +366,24 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 */
 	public EReference getSemester_Programme() {
 		return (EReference)semesterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSemester_CourseCriteria() {
+		return (EReference)semesterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSemester_MandatoryCourses() {
+		return (EAttribute)semesterEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -401,24 +445,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCourseGroup_MandatoryCourses() {
-		return (EAttribute)courseGroupEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCourseGroup_CourseCriteria() {
-		return (EReference)courseGroupEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStudyPlan() {
 		return studyPlanEClass;
 	}
@@ -437,6 +463,33 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStudyPlan_Student() {
+		return (EReference)studyPlanEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStudent() {
+		return studentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStudent_StudyPlan() {
+		return (EReference)studentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNTNU() {
 		return ntnuEClass;
 	}
@@ -447,7 +500,16 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	public EReference getNTNU_StudyPlans() {
-		return (EReference)ntnuEClass.getEStructuralFeatures().get(0);
+		return (EReference)ntnuEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNTNU_Students() {
+		return (EReference)ntnuEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -456,7 +518,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	public EReference getNTNU_Courses() {
-		return (EReference)ntnuEClass.getEStructuralFeatures().get(1);
+		return (EReference)ntnuEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -514,19 +576,23 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		programmeEClass = createEClass(PROGRAMME);
 		createEAttribute(programmeEClass, PROGRAMME__NAME);
-		createEReference(programmeEClass, PROGRAMME__SPECIALISATION);
+		createEReference(programmeEClass, PROGRAMME__SPECIALISATIONS);
 		createEReference(programmeEClass, PROGRAMME__SEMESTERS);
 		createEAttribute(programmeEClass, PROGRAMME__NUMBER_OF_YEARS);
 
 		specialisationEClass = createEClass(SPECIALISATION);
 		createEAttribute(specialisationEClass, SPECIALISATION__NAME);
 		createEAttribute(specialisationEClass, SPECIALISATION__START_YEAR);
+		createEAttribute(specialisationEClass, SPECIALISATION__DURATION);
+		createEReference(specialisationEClass, SPECIALISATION__SEMESTERS);
 
 		semesterEClass = createEClass(SEMESTER);
 		createEAttribute(semesterEClass, SEMESTER__TIME_OF_YEAR);
 		createEReference(semesterEClass, SEMESTER__COURSE_GROUPS);
 		createEAttribute(semesterEClass, SEMESTER__YEAR);
 		createEReference(semesterEClass, SEMESTER__PROGRAMME);
+		createEReference(semesterEClass, SEMESTER__COURSE_CRITERIA);
+		createEAttribute(semesterEClass, SEMESTER__MANDATORY_COURSES);
 
 		courseCriteriaEClass = createEClass(COURSE_CRITERIA);
 		createEAttribute(courseCriteriaEClass, COURSE_CRITERIA__LEVEL);
@@ -535,15 +601,18 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		courseGroupEClass = createEClass(COURSE_GROUP);
 		createEAttribute(courseGroupEClass, COURSE_GROUP__NAME);
 		createEReference(courseGroupEClass, COURSE_GROUP__COURSES);
-		createEAttribute(courseGroupEClass, COURSE_GROUP__MANDATORY_COURSES);
-		createEReference(courseGroupEClass, COURSE_GROUP__COURSE_CRITERIA);
+
+		ntnuEClass = createEClass(NTNU);
+		createEReference(ntnuEClass, NTNU__COURSES);
+		createEReference(ntnuEClass, NTNU__STUDY_PLANS);
+		createEReference(ntnuEClass, NTNU__STUDENTS);
 
 		studyPlanEClass = createEClass(STUDY_PLAN);
 		createEReference(studyPlanEClass, STUDY_PLAN__PROGRAMME);
+		createEReference(studyPlanEClass, STUDY_PLAN__STUDENT);
 
-		ntnuEClass = createEClass(NTNU);
-		createEReference(ntnuEClass, NTNU__STUDY_PLANS);
-		createEReference(ntnuEClass, NTNU__COURSES);
+		studentEClass = createEClass(STUDENT);
+		createEReference(studentEClass, STUDENT__STUDY_PLAN);
 
 		// Create enums
 		timeOfYearEEnum = createEEnum(TIME_OF_YEAR);
@@ -589,19 +658,23 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		initEClass(programmeEClass, Programme.class, "Programme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgramme_Name(), ecorePackage.getEString(), "name", null, 0, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgramme_Specialisation(), this.getSpecialisation(), null, "specialisation", null, 0, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgramme_Specialisations(), this.getSpecialisation(), null, "specialisations", null, 0, -1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramme_Semesters(), this.getSemester(), this.getSemester_Programme(), "semesters", null, 4, 10, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgramme_NumberOfYears(), ecorePackage.getEInt(), "numberOfYears", null, 0, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specialisationEClass, Specialisation.class, "Specialisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpecialisation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpecialisation_StartYear(), ecorePackage.getEInt(), "startYear", null, 0, 1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecialisation_Duration(), ecorePackage.getEInt(), "duration", null, 0, 1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecialisation_Semesters(), this.getSemester(), null, "semesters", null, 0, -1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(semesterEClass, Semester.class, "Semester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemester_TimeOfYear(), this.getTimeOfYear(), "timeOfYear", null, 1, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemester_CourseGroups(), this.getCourseGroup(), null, "courseGroups", null, 1, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSemester_Year(), ecorePackage.getEInt(), "year", null, 0, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemester_Programme(), this.getProgramme(), this.getProgramme_Semesters(), "programme", null, 0, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSemester_CourseCriteria(), this.getCourseCriteria(), null, "courseCriteria", null, 0, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSemester_MandatoryCourses(), ecorePackage.getEString(), "mandatoryCourses", null, 0, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseCriteriaEClass, CourseCriteria.class, "CourseCriteria", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourseCriteria_Level(), ecorePackage.getEInt(), "level", null, 0, 1, CourseCriteria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -610,15 +683,18 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEClass(courseGroupEClass, CourseGroup.class, "CourseGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourseGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCourseGroup_Courses(), this.getCourse(), null, "courses", null, 1, -1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourseGroup_MandatoryCourses(), ecorePackage.getEString(), "mandatoryCourses", null, 0, -1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCourseGroup_CourseCriteria(), this.getCourseCriteria(), null, "courseCriteria", null, 0, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ntnuEClass, exercise.NTNU.class, "NTNU", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNTNU_Courses(), this.getCourse(), null, "courses", null, 0, -1, exercise.NTNU.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNTNU_StudyPlans(), this.getStudyPlan(), null, "studyPlans", null, 0, -1, exercise.NTNU.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNTNU_Students(), this.getStudent(), null, "students", null, 0, -1, exercise.NTNU.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(studyPlanEClass, StudyPlan.class, "StudyPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStudyPlan_Programme(), this.getProgramme(), null, "programme", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStudyPlan_Student(), this.getStudent(), this.getStudent_StudyPlan(), "student", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(ntnuEClass, exercise.NTNU.class, "NTNU", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNTNU_StudyPlans(), this.getStudyPlan(), null, "studyPlans", null, 0, -1, exercise.NTNU.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNTNU_Courses(), this.getCourse(), null, "courses", null, 0, -1, exercise.NTNU.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(studentEClass, Student.class, "Student", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStudent_StudyPlan(), this.getStudyPlan(), this.getStudyPlan_Student(), "studyPlan", null, 0, 1, Student.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeOfYearEEnum, TimeOfYear.class, "TimeOfYear");
@@ -659,6 +735,12 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		   source,
 		   new String[] {
 			   "constraints", "validateMaxNumberOfSemesters"
+		   });
+		addAnnotation
+		  (specialisationEClass,
+		   source,
+		   new String[] {
+			   "constraints", "semestersMustBeContainedInParentProgramme"
 		   });
 	}
 

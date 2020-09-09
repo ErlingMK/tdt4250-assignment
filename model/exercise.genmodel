@@ -23,19 +23,23 @@
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//Programme">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Programme/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Programme/specialisation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Programme/specialisations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Programme/semesters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Programme/numberOfYears"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//Specialisation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/startYear"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Specialisation/duration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//Specialisation/semesters"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//Semester">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Semester/timeOfYear"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Semester/courseGroups"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Semester/year"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference exersice.ecore#//Semester/programme"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//Semester/courseCriteria"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//Semester/mandatoryCourses"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//CourseCriteria">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseCriteria/level"/>
@@ -44,15 +48,18 @@
     <genClasses ecoreClass="exersice.ecore#//CourseGroup">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseGroup/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//CourseGroup/courses"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exersice.ecore#//CourseGroup/mandatoryCourses"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//CourseGroup/courseCriteria"/>
+    </genClasses>
+    <genClasses ecoreClass="exersice.ecore#//NTNU">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/courses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/studyPlans"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/students"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//StudyPlan">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//StudyPlan/programme"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//StudyPlan/student"/>
     </genClasses>
-    <genClasses ecoreClass="exersice.ecore#//NTNU">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/studyPlans"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/courses"/>
+    <genClasses ecoreClass="exersice.ecore#//Student">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//Student/studyPlan"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

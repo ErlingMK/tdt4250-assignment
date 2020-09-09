@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EPackage;
@@ -98,10 +99,12 @@ public class ExerciseValidator extends EObjectValidator {
 				return validateCourseCriteria((CourseCriteria)value, diagnostics, context);
 			case ExercisePackage.COURSE_GROUP:
 				return validateCourseGroup((CourseGroup)value, diagnostics, context);
-			case ExercisePackage.STUDY_PLAN:
-				return validateStudyPlan((StudyPlan)value, diagnostics, context);
 			case ExercisePackage.NTNU:
 				return validateNTNU((NTNU)value, diagnostics, context);
+			case ExercisePackage.STUDY_PLAN:
+				return validateStudyPlan((StudyPlan)value, diagnostics, context);
+			case ExercisePackage.STUDENT:
+				return validateStudent((Student)value, diagnostics, context);
 			case ExercisePackage.TIME_OF_YEAR:
 				return validateTimeOfYear((TimeOfYear)value, diagnostics, context);
 			case ExercisePackage.FIELD:
@@ -174,7 +177,51 @@ public class ExerciseValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSpecialisation(Specialisation specialisation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(specialisation, diagnostics, context);
+		if (!validate_NoCircularContainment(specialisation, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSpecialisation_semestersMustBeContainedInParentProgramme(specialisation, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the semestersMustBeContainedInParentProgramme constraint of '<em>Specialisation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateSpecialisation_semestersMustBeContainedInParentProgramme(Specialisation specialisation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean isValid = false;
+		
+		Programme parentProgramme = (Programme) specialisation.eContainer();
+		EList<Semester> semesters = specialisation.getSemesters();
+		
+		for (Semester semester : semesters) {			
+			isValid = parentProgramme.getSemesters().contains(semester);
+			if (!isValid) break;
+		}
+		
+		if (!isValid) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "semestersMustBeContainedInParentProgramme", getObjectLabel(specialisation, context) },
+						 new Object[] { specialisation },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -211,6 +258,15 @@ public class ExerciseValidator extends EObjectValidator {
 	 */
 	public boolean validateStudyPlan(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(studyPlan, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStudent(Student student, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(student, diagnostics, context);
 	}
 
 	/**

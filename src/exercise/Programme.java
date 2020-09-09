@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link exercise.Programme#getName <em>Name</em>}</li>
- *   <li>{@link exercise.Programme#getSpecialisation <em>Specialisation</em>}</li>
+ *   <li>{@link exercise.Programme#getSpecialisations <em>Specialisations</em>}</li>
  *   <li>{@link exercise.Programme#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link exercise.Programme#getNumberOfYears <em>Number Of Years</em>}</li>
  * </ul>
@@ -50,26 +50,16 @@ public interface Programme extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Specialisation</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Specialisations</b></em>' containment reference list.
+	 * The list contents are of type {@link exercise.Specialisation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specialisation</em>' containment reference.
-	 * @see #setSpecialisation(Specialisation)
-	 * @see exercise.ExercisePackage#getProgramme_Specialisation()
+	 * @return the value of the '<em>Specialisations</em>' containment reference list.
+	 * @see exercise.ExercisePackage#getProgramme_Specialisations()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Specialisation getSpecialisation();
-
-	/**
-	 * Sets the value of the '{@link exercise.Programme#getSpecialisation <em>Specialisation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specialisation</em>' containment reference.
-	 * @see #getSpecialisation()
-	 * @generated
-	 */
-	void setSpecialisation(Specialisation value);
+	EList<Specialisation> getSpecialisations();
 
 	/**
 	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.

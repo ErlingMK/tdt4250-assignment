@@ -4,6 +4,7 @@ package exercise.impl;
 
 import exercise.ExercisePackage;
 import exercise.Programme;
+import exercise.Student;
 import exercise.StudyPlan;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link exercise.impl.StudyPlanImpl#getProgramme <em>Programme</em>}</li>
+ *   <li>{@link exercise.impl.StudyPlanImpl#getStudent <em>Student</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,6 +38,16 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * @ordered
 	 */
 	protected Programme programme;
+
+	/**
+	 * The cached value of the '{@link #getStudent() <em>Student</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStudent()
+	 * @generated
+	 * @ordered
+	 */
+	protected Student student;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,11 +116,89 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Student getStudent() {
+		if (student != null && student.eIsProxy()) {
+			InternalEObject oldStudent = (InternalEObject)student;
+			student = (Student)eResolveProxy(oldStudent);
+			if (student != oldStudent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExercisePackage.STUDY_PLAN__STUDENT, oldStudent, student));
+			}
+		}
+		return student;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Student basicGetStudent() {
+		return student;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStudent(Student newStudent, NotificationChain msgs) {
+		Student oldStudent = student;
+		student = newStudent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExercisePackage.STUDY_PLAN__STUDENT, oldStudent, newStudent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStudent(Student newStudent) {
+		if (newStudent != student) {
+			NotificationChain msgs = null;
+			if (student != null)
+				msgs = ((InternalEObject)student).eInverseRemove(this, ExercisePackage.STUDENT__STUDY_PLAN, Student.class, msgs);
+			if (newStudent != null)
+				msgs = ((InternalEObject)newStudent).eInverseAdd(this, ExercisePackage.STUDENT__STUDY_PLAN, Student.class, msgs);
+			msgs = basicSetStudent(newStudent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.STUDY_PLAN__STUDENT, newStudent, newStudent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExercisePackage.STUDY_PLAN__STUDENT:
+				if (student != null)
+					msgs = ((InternalEObject)student).eInverseRemove(this, ExercisePackage.STUDENT__STUDY_PLAN, Student.class, msgs);
+				return basicSetStudent((Student)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ExercisePackage.STUDY_PLAN__PROGRAMME:
 				return basicSetProgramme(null, msgs);
+			case ExercisePackage.STUDY_PLAN__STUDENT:
+				return basicSetStudent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,6 +213,9 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 		switch (featureID) {
 			case ExercisePackage.STUDY_PLAN__PROGRAMME:
 				return getProgramme();
+			case ExercisePackage.STUDY_PLAN__STUDENT:
+				if (resolve) return getStudent();
+				return basicGetStudent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -139,6 +232,9 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case ExercisePackage.STUDY_PLAN__PROGRAMME:
 				setProgramme((Programme)newValue);
 				return;
+			case ExercisePackage.STUDY_PLAN__STUDENT:
+				setStudent((Student)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -154,6 +250,9 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 			case ExercisePackage.STUDY_PLAN__PROGRAMME:
 				setProgramme((Programme)null);
 				return;
+			case ExercisePackage.STUDY_PLAN__STUDENT:
+				setStudent((Student)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -168,6 +267,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 		switch (featureID) {
 			case ExercisePackage.STUDY_PLAN__PROGRAMME:
 				return programme != null;
+			case ExercisePackage.STUDY_PLAN__STUDENT:
+				return student != null;
 		}
 		return super.eIsSet(featureID);
 	}

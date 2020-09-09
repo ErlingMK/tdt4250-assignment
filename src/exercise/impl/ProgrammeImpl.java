@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link exercise.impl.ProgrammeImpl#getName <em>Name</em>}</li>
- *   <li>{@link exercise.impl.ProgrammeImpl#getSpecialisation <em>Specialisation</em>}</li>
+ *   <li>{@link exercise.impl.ProgrammeImpl#getSpecialisations <em>Specialisations</em>}</li>
  *   <li>{@link exercise.impl.ProgrammeImpl#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link exercise.impl.ProgrammeImpl#getNumberOfYears <em>Number Of Years</em>}</li>
  * </ul>
@@ -60,14 +61,14 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSpecialisation() <em>Specialisation</em>}' containment reference.
+	 * The cached value of the '{@link #getSpecialisations() <em>Specialisations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecialisation()
+	 * @see #getSpecialisations()
 	 * @generated
 	 * @ordered
 	 */
-	protected Specialisation specialisation;
+	protected EList<Specialisation> specialisations;
 
 	/**
 	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' containment reference list.
@@ -144,42 +145,11 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Specialisation getSpecialisation() {
-		return specialisation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSpecialisation(Specialisation newSpecialisation, NotificationChain msgs) {
-		Specialisation oldSpecialisation = specialisation;
-		specialisation = newSpecialisation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExercisePackage.PROGRAMME__SPECIALISATION, oldSpecialisation, newSpecialisation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Specialisation> getSpecialisations() {
+		if (specialisations == null) {
+			specialisations = new EObjectContainmentEList<Specialisation>(Specialisation.class, this, ExercisePackage.PROGRAMME__SPECIALISATIONS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSpecialisation(Specialisation newSpecialisation) {
-		if (newSpecialisation != specialisation) {
-			NotificationChain msgs = null;
-			if (specialisation != null)
-				msgs = ((InternalEObject)specialisation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExercisePackage.PROGRAMME__SPECIALISATION, null, msgs);
-			if (newSpecialisation != null)
-				msgs = ((InternalEObject)newSpecialisation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExercisePackage.PROGRAMME__SPECIALISATION, null, msgs);
-			msgs = basicSetSpecialisation(newSpecialisation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.PROGRAMME__SPECIALISATION, newSpecialisation, newSpecialisation));
+		return specialisations;
 	}
 
 	/**
@@ -238,8 +208,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExercisePackage.PROGRAMME__SPECIALISATION:
-				return basicSetSpecialisation(null, msgs);
+			case ExercisePackage.PROGRAMME__SPECIALISATIONS:
+				return ((InternalEList<?>)getSpecialisations()).basicRemove(otherEnd, msgs);
 			case ExercisePackage.PROGRAMME__SEMESTERS:
 				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
 		}
@@ -256,8 +226,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		switch (featureID) {
 			case ExercisePackage.PROGRAMME__NAME:
 				return getName();
-			case ExercisePackage.PROGRAMME__SPECIALISATION:
-				return getSpecialisation();
+			case ExercisePackage.PROGRAMME__SPECIALISATIONS:
+				return getSpecialisations();
 			case ExercisePackage.PROGRAMME__SEMESTERS:
 				return getSemesters();
 			case ExercisePackage.PROGRAMME__NUMBER_OF_YEARS:
@@ -278,8 +248,9 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case ExercisePackage.PROGRAMME__NAME:
 				setName((String)newValue);
 				return;
-			case ExercisePackage.PROGRAMME__SPECIALISATION:
-				setSpecialisation((Specialisation)newValue);
+			case ExercisePackage.PROGRAMME__SPECIALISATIONS:
+				getSpecialisations().clear();
+				getSpecialisations().addAll((Collection<? extends Specialisation>)newValue);
 				return;
 			case ExercisePackage.PROGRAMME__SEMESTERS:
 				getSemesters().clear();
@@ -303,8 +274,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case ExercisePackage.PROGRAMME__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ExercisePackage.PROGRAMME__SPECIALISATION:
-				setSpecialisation((Specialisation)null);
+			case ExercisePackage.PROGRAMME__SPECIALISATIONS:
+				getSpecialisations().clear();
 				return;
 			case ExercisePackage.PROGRAMME__SEMESTERS:
 				getSemesters().clear();
@@ -326,8 +297,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		switch (featureID) {
 			case ExercisePackage.PROGRAMME__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ExercisePackage.PROGRAMME__SPECIALISATION:
-				return specialisation != null;
+			case ExercisePackage.PROGRAMME__SPECIALISATIONS:
+				return specialisations != null && !specialisations.isEmpty();
 			case ExercisePackage.PROGRAMME__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
 			case ExercisePackage.PROGRAMME__NUMBER_OF_YEARS:

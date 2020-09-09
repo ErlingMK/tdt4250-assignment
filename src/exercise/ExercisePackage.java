@@ -151,13 +151,13 @@ public interface ExercisePackage extends EPackage {
 	int PROGRAMME__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Specialisation</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specialisations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAMME__SPECIALISATION = 1;
+	int PROGRAMME__SPECIALISATIONS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Semesters</b></em>' containment reference list.
@@ -224,13 +224,31 @@ public interface ExercisePackage extends EPackage {
 	int SPECIALISATION__START_YEAR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIALISATION__DURATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Semesters</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIALISATION__SEMESTERS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Specialisation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIALISATION_FEATURE_COUNT = 2;
+	int SPECIALISATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Specialisation</em>' class.
@@ -288,13 +306,31 @@ public interface ExercisePackage extends EPackage {
 	int SEMESTER__PROGRAMME = 3;
 
 	/**
+	 * The feature id for the '<em><b>Course Criteria</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__COURSE_CRITERIA = 4;
+
+	/**
+	 * The feature id for the '<em><b>Mandatory Courses</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__MANDATORY_COURSES = 5;
+
+	/**
 	 * The number of structural features of the '<em>Semester</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMESTER_FEATURE_COUNT = 4;
+	int SEMESTER_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Semester</em>' class.
@@ -380,31 +416,13 @@ public interface ExercisePackage extends EPackage {
 	int COURSE_GROUP__COURSES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Mandatory Courses</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_GROUP__MANDATORY_COURSES = 2;
-
-	/**
-	 * The feature id for the '<em><b>Course Criteria</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COURSE_GROUP__COURSE_CRITERIA = 3;
-
-	/**
 	 * The number of structural features of the '<em>Course Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_GROUP_FEATURE_COUNT = 4;
+	int COURSE_GROUP_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Course Group</em>' class.
@@ -423,34 +441,17 @@ public interface ExercisePackage extends EPackage {
 	 * @see exercise.impl.ExercisePackageImpl#getStudyPlan()
 	 * @generated
 	 */
-	int STUDY_PLAN = 6;
+	int STUDY_PLAN = 7;
 
 	/**
-	 * The feature id for the '<em><b>Programme</b></em>' containment reference.
+	 * The meta object id for the '{@link exercise.impl.StudentImpl <em>Student</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see exercise.impl.StudentImpl
+	 * @see exercise.impl.ExercisePackageImpl#getStudent()
 	 * @generated
-	 * @ordered
 	 */
-	int STUDY_PLAN__PROGRAMME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Study Plan</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Study Plan</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN_OPERATION_COUNT = 0;
+	int STUDENT = 8;
 
 	/**
 	 * The meta object id for the '{@link exercise.impl.NTNUImpl <em>NTNU</em>}' class.
@@ -460,16 +461,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see exercise.impl.ExercisePackageImpl#getNTNU()
 	 * @generated
 	 */
-	int NTNU = 7;
-
-	/**
-	 * The feature id for the '<em><b>Study Plans</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NTNU__STUDY_PLANS = 0;
+	int NTNU = 6;
 
 	/**
 	 * The feature id for the '<em><b>Courses</b></em>' containment reference list.
@@ -478,7 +470,25 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NTNU__COURSES = 1;
+	int NTNU__COURSES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Study Plans</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NTNU__STUDY_PLANS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Students</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NTNU__STUDENTS = 2;
 
 	/**
 	 * The number of structural features of the '<em>NTNU</em>' class.
@@ -487,7 +497,7 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NTNU_FEATURE_COUNT = 2;
+	int NTNU_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>NTNU</em>' class.
@@ -499,6 +509,69 @@ public interface ExercisePackage extends EPackage {
 	int NTNU_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Programme</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN__PROGRAMME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Student</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN__STUDENT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Study Plan</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Study Plan</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Study Plan</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT__STUDY_PLAN = 0;
+
+	/**
+	 * The number of structural features of the '<em>Student</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Student</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link exercise.TimeOfYear <em>Time Of Year</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -506,7 +579,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see exercise.impl.ExercisePackageImpl#getTimeOfYear()
 	 * @generated
 	 */
-	int TIME_OF_YEAR = 8;
+	int TIME_OF_YEAR = 9;
 
 	/**
 	 * The meta object id for the '{@link exercise.Field <em>Field</em>}' enum.
@@ -516,7 +589,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see exercise.impl.ExercisePackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 9;
+	int FIELD = 10;
 
 
 	/**
@@ -606,15 +679,15 @@ public interface ExercisePackage extends EPackage {
 	EAttribute getProgramme_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link exercise.Programme#getSpecialisation <em>Specialisation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link exercise.Programme#getSpecialisations <em>Specialisations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Specialisation</em>'.
-	 * @see exercise.Programme#getSpecialisation()
+	 * @return the meta object for the containment reference list '<em>Specialisations</em>'.
+	 * @see exercise.Programme#getSpecialisations()
 	 * @see #getProgramme()
 	 * @generated
 	 */
-	EReference getProgramme_Specialisation();
+	EReference getProgramme_Specialisations();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link exercise.Programme#getSemesters <em>Semesters</em>}'.
@@ -671,6 +744,28 @@ public interface ExercisePackage extends EPackage {
 	EAttribute getSpecialisation_StartYear();
 
 	/**
+	 * Returns the meta object for the attribute '{@link exercise.Specialisation#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see exercise.Specialisation#getDuration()
+	 * @see #getSpecialisation()
+	 * @generated
+	 */
+	EAttribute getSpecialisation_Duration();
+
+	/**
+	 * Returns the meta object for the reference list '{@link exercise.Specialisation#getSemesters <em>Semesters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Semesters</em>'.
+	 * @see exercise.Specialisation#getSemesters()
+	 * @see #getSpecialisation()
+	 * @generated
+	 */
+	EReference getSpecialisation_Semesters();
+
+	/**
 	 * Returns the meta object for class '{@link exercise.Semester <em>Semester</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +818,28 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSemester_Programme();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link exercise.Semester#getCourseCriteria <em>Course Criteria</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Course Criteria</em>'.
+	 * @see exercise.Semester#getCourseCriteria()
+	 * @see #getSemester()
+	 * @generated
+	 */
+	EReference getSemester_CourseCriteria();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link exercise.Semester#getMandatoryCourses <em>Mandatory Courses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mandatory Courses</em>'.
+	 * @see exercise.Semester#getMandatoryCourses()
+	 * @see #getSemester()
+	 * @generated
+	 */
+	EAttribute getSemester_MandatoryCourses();
 
 	/**
 	 * Returns the meta object for class '{@link exercise.CourseCriteria <em>Course Criteria</em>}'.
@@ -789,28 +906,6 @@ public interface ExercisePackage extends EPackage {
 	EReference getCourseGroup_Courses();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link exercise.CourseGroup#getMandatoryCourses <em>Mandatory Courses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Mandatory Courses</em>'.
-	 * @see exercise.CourseGroup#getMandatoryCourses()
-	 * @see #getCourseGroup()
-	 * @generated
-	 */
-	EAttribute getCourseGroup_MandatoryCourses();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link exercise.CourseGroup#getCourseCriteria <em>Course Criteria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Course Criteria</em>'.
-	 * @see exercise.CourseGroup#getCourseCriteria()
-	 * @see #getCourseGroup()
-	 * @generated
-	 */
-	EReference getCourseGroup_CourseCriteria();
-
-	/**
 	 * Returns the meta object for class '{@link exercise.StudyPlan <em>Study Plan</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -832,6 +927,38 @@ public interface ExercisePackage extends EPackage {
 	EReference getStudyPlan_Programme();
 
 	/**
+	 * Returns the meta object for the reference '{@link exercise.StudyPlan#getStudent <em>Student</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Student</em>'.
+	 * @see exercise.StudyPlan#getStudent()
+	 * @see #getStudyPlan()
+	 * @generated
+	 */
+	EReference getStudyPlan_Student();
+
+	/**
+	 * Returns the meta object for class '{@link exercise.Student <em>Student</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Student</em>'.
+	 * @see exercise.Student
+	 * @generated
+	 */
+	EClass getStudent();
+
+	/**
+	 * Returns the meta object for the reference '{@link exercise.Student#getStudyPlan <em>Study Plan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Study Plan</em>'.
+	 * @see exercise.Student#getStudyPlan()
+	 * @see #getStudent()
+	 * @generated
+	 */
+	EReference getStudent_StudyPlan();
+
+	/**
 	 * Returns the meta object for class '{@link exercise.NTNU <em>NTNU</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -851,6 +978,17 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNTNU_StudyPlans();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link exercise.NTNU#getStudents <em>Students</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Students</em>'.
+	 * @see exercise.NTNU#getStudents()
+	 * @see #getNTNU()
+	 * @generated
+	 */
+	EReference getNTNU_Students();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link exercise.NTNU#getCourses <em>Courses</em>}'.
@@ -975,12 +1113,12 @@ public interface ExercisePackage extends EPackage {
 		EAttribute PROGRAMME__NAME = eINSTANCE.getProgramme_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Specialisation</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Specialisations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROGRAMME__SPECIALISATION = eINSTANCE.getProgramme_Specialisation();
+		EReference PROGRAMME__SPECIALISATIONS = eINSTANCE.getProgramme_Specialisations();
 
 		/**
 		 * The meta object literal for the '<em><b>Semesters</b></em>' containment reference list feature.
@@ -1025,6 +1163,22 @@ public interface ExercisePackage extends EPackage {
 		EAttribute SPECIALISATION__START_YEAR = eINSTANCE.getSpecialisation_StartYear();
 
 		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIALISATION__DURATION = eINSTANCE.getSpecialisation_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>Semesters</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPECIALISATION__SEMESTERS = eINSTANCE.getSpecialisation_Semesters();
+
+		/**
 		 * The meta object literal for the '{@link exercise.impl.SemesterImpl <em>Semester</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1065,6 +1219,22 @@ public interface ExercisePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SEMESTER__PROGRAMME = eINSTANCE.getSemester_Programme();
+
+		/**
+		 * The meta object literal for the '<em><b>Course Criteria</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMESTER__COURSE_CRITERIA = eINSTANCE.getSemester_CourseCriteria();
+
+		/**
+		 * The meta object literal for the '<em><b>Mandatory Courses</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEMESTER__MANDATORY_COURSES = eINSTANCE.getSemester_MandatoryCourses();
 
 		/**
 		 * The meta object literal for the '{@link exercise.impl.CourseCriteriaImpl <em>Course Criteria</em>}' class.
@@ -1119,22 +1289,6 @@ public interface ExercisePackage extends EPackage {
 		EReference COURSE_GROUP__COURSES = eINSTANCE.getCourseGroup_Courses();
 
 		/**
-		 * The meta object literal for the '<em><b>Mandatory Courses</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COURSE_GROUP__MANDATORY_COURSES = eINSTANCE.getCourseGroup_MandatoryCourses();
-
-		/**
-		 * The meta object literal for the '<em><b>Course Criteria</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COURSE_GROUP__COURSE_CRITERIA = eINSTANCE.getCourseGroup_CourseCriteria();
-
-		/**
 		 * The meta object literal for the '{@link exercise.impl.StudyPlanImpl <em>Study Plan</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1153,6 +1307,32 @@ public interface ExercisePackage extends EPackage {
 		EReference STUDY_PLAN__PROGRAMME = eINSTANCE.getStudyPlan_Programme();
 
 		/**
+		 * The meta object literal for the '<em><b>Student</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STUDY_PLAN__STUDENT = eINSTANCE.getStudyPlan_Student();
+
+		/**
+		 * The meta object literal for the '{@link exercise.impl.StudentImpl <em>Student</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see exercise.impl.StudentImpl
+		 * @see exercise.impl.ExercisePackageImpl#getStudent()
+		 * @generated
+		 */
+		EClass STUDENT = eINSTANCE.getStudent();
+
+		/**
+		 * The meta object literal for the '<em><b>Study Plan</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STUDENT__STUDY_PLAN = eINSTANCE.getStudent_StudyPlan();
+
+		/**
 		 * The meta object literal for the '{@link exercise.impl.NTNUImpl <em>NTNU</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1169,6 +1349,14 @@ public interface ExercisePackage extends EPackage {
 		 * @generated
 		 */
 		EReference NTNU__STUDY_PLANS = eINSTANCE.getNTNU_StudyPlans();
+
+		/**
+		 * The meta object literal for the '<em><b>Students</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NTNU__STUDENTS = eINSTANCE.getNTNU_Students();
 
 		/**
 		 * The meta object literal for the '<em><b>Courses</b></em>' containment reference list feature.
