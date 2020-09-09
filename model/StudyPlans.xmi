@@ -24,7 +24,6 @@
           <courses
               href="Courses.xmi#//@courses.3"/>
         </courseGroups>
-        <courseCriteria/>
         <mandatoryCourses>TDT4175</mandatoryCourses>
       </semesters>
       <semesters
@@ -40,6 +39,15 @@
           <courses
               href="Courses.xmi#//@courses.4"/>
         </courseGroups>
+        <courseGroups
+            name="Ingeniøremne annet studieprogram">
+          <courses
+              href="Courses.xmi#//@courses.9"/>
+          <courses
+              href="Courses.xmi#//@courses.10"/>
+          <courses
+              href="Courses.xmi#//@courses.11"/>
+        </courseGroups>
       </semesters>
       <semesters
           timeOfYear="spring"
@@ -53,16 +61,22 @@
       </semesters>
       <semesters
           year="1">
-        <courseGroups>
+        <courseGroups
+            name="Fordypningsemner og masteroppgave">
           <courses
-              href="Courses.xmi#//@courses.5"/>
+              href="Courses.xmi#//@courses.12"/>
           <courses
-              href="Courses.xmi#//@courses.6"/>
-          <courses
-              href="Courses.xmi#//@courses.7"/>
-          <courses
-              href="Courses.xmi#//@courses.4"/>
+              href="Courses.xmi#//@courses.13"/>
         </courseGroups>
+        <courseGroups
+            name="Komplementære emner">
+          <courses
+              href="Courses.xmi#//@courses.14"/>
+          <courses
+              href="Courses.xmi#//@courses.15"/>
+        </courseGroups>
+        <mandatoryCourses>TDT4506</mandatoryCourses>
+        <mandatoryCourses>TDT4501</mandatoryCourses>
       </semesters>
     </programme>
   </studyPlans>

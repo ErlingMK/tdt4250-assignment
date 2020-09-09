@@ -27,4 +27,11 @@
   <courses code="TDT4900" credits="30.0" name="Masteroppgave" level="5">
     <fields>Datateknikk_og_informasjonsvitenskap</fields>
   </courses>
+  <courses code="MEDT4165" credits="7.5" name="Signalbehandling i ultralyd-avbildning" level="3"/>
+  <courses code="MOL4010" credits="7.5" name="Grunnleggende molekylærbiologi" level="3"/>
+  <courses code="TET4120" credits="7.5" name="Elektriske motordrifter" level="3"/>
+  <courses code="TDT4501" credits="15.0" name="Datateknologi, fordypningsprosjekt" level="4"/>
+  <courses code="TDT4506" credits="7.5" name="Datateknologi, fordypningsemne" level="4"/>
+  <courses code="AAR4250" credits="7.5" name="Arkitektur som teknologisk praksis" level="4"/>
+  <courses code="BSOL4610" credits="7.5" name="Strategi og endring i teknologibedrifter" level="4"/>
 </exercise:NTNU>
