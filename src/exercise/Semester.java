@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see exercise.ExercisePackage#getSemester()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='courseGroupsMustContainMandatoryCourses'"
  * @generated
  */
 public interface Semester extends EObject {

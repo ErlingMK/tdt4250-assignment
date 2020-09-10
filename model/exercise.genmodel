@@ -53,14 +53,9 @@
     <genClasses ecoreClass="exersice.ecore#//NTNU">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/courses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/studyPlans"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//NTNU/students"/>
     </genClasses>
     <genClasses ecoreClass="exersice.ecore#//StudyPlan">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference exersice.ecore#//StudyPlan/programme"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//StudyPlan/student"/>
-    </genClasses>
-    <genClasses ecoreClass="exersice.ecore#//Student">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference exersice.ecore#//Student/studyPlan"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

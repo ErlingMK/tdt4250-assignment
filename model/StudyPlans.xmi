@@ -25,6 +25,10 @@
           <courses
               href="Courses.xmi#//@courses.3"/>
         </courseGroups>
+        <courseCriteria
+            level="3">
+          <field>Datateknikk</field>
+        </courseCriteria>
         <mandatoryCourses>TDT4175</mandatoryCourses>
       </semesters>
       <semesters

@@ -85,15 +85,6 @@ public interface ExerciseFactory extends EFactory {
 	StudyPlan createStudyPlan();
 
 	/**
-	 * Returns a new object of class '<em>Student</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Student</em>'.
-	 * @generated
-	 */
-	Student createStudent();
-
-	/**
 	 * Returns a new object of class '<em>NTNU</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

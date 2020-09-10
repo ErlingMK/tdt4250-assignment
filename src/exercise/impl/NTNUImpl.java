@@ -5,7 +5,6 @@ package exercise.impl;
 import exercise.Course;
 import exercise.ExercisePackage;
 import exercise.NTNU;
-import exercise.Student;
 import exercise.StudyPlan;
 
 import java.util.Collection;
@@ -32,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link exercise.impl.NTNUImpl#getCourses <em>Courses</em>}</li>
  *   <li>{@link exercise.impl.NTNUImpl#getStudyPlans <em>Study Plans</em>}</li>
- *   <li>{@link exercise.impl.NTNUImpl#getStudents <em>Students</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,16 +55,6 @@ public class NTNUImpl extends MinimalEObjectImpl.Container implements NTNU {
 	 * @ordered
 	 */
 	protected EList<StudyPlan> studyPlans;
-
-	/**
-	 * The cached value of the '{@link #getStudents() <em>Students</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStudents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Student> students;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,18 +92,6 @@ public class NTNUImpl extends MinimalEObjectImpl.Container implements NTNU {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Student> getStudents() {
-		if (students == null) {
-			students = new EObjectContainmentEList<Student>(Student.class, this, ExercisePackage.NTNU__STUDENTS);
-		}
-		return students;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Course> getCourses() {
 		if (courses == null) {
 			courses = new EObjectContainmentEList<Course>(Course.class, this, ExercisePackage.NTNU__COURSES);
@@ -135,8 +111,6 @@ public class NTNUImpl extends MinimalEObjectImpl.Container implements NTNU {
 				return ((InternalEList<?>)getCourses()).basicRemove(otherEnd, msgs);
 			case ExercisePackage.NTNU__STUDY_PLANS:
 				return ((InternalEList<?>)getStudyPlans()).basicRemove(otherEnd, msgs);
-			case ExercisePackage.NTNU__STUDENTS:
-				return ((InternalEList<?>)getStudents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -153,8 +127,6 @@ public class NTNUImpl extends MinimalEObjectImpl.Container implements NTNU {
 				return getCourses();
 			case ExercisePackage.NTNU__STUDY_PLANS:
 				return getStudyPlans();
-			case ExercisePackage.NTNU__STUDENTS:
-				return getStudents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -176,10 +148,6 @@ public class NTNUImpl extends MinimalEObjectImpl.Container implements NTNU {
 				getStudyPlans().clear();
 				getStudyPlans().addAll((Collection<? extends StudyPlan>)newValue);
 				return;
-			case ExercisePackage.NTNU__STUDENTS:
-				getStudents().clear();
-				getStudents().addAll((Collection<? extends Student>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -198,9 +166,6 @@ public class NTNUImpl extends MinimalEObjectImpl.Container implements NTNU {
 			case ExercisePackage.NTNU__STUDY_PLANS:
 				getStudyPlans().clear();
 				return;
-			case ExercisePackage.NTNU__STUDENTS:
-				getStudents().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,8 +182,6 @@ public class NTNUImpl extends MinimalEObjectImpl.Container implements NTNU {
 				return courses != null && !courses.isEmpty();
 			case ExercisePackage.NTNU__STUDY_PLANS:
 				return studyPlans != null && !studyPlans.isEmpty();
-			case ExercisePackage.NTNU__STUDENTS:
-				return students != null && !students.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

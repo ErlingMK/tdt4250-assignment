@@ -2,6 +2,7 @@
  */
 package exercise;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -45,28 +46,17 @@ public interface CourseCriteria extends EObject {
 	void setLevel(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Field</b></em>' attribute.
+	 * Returns the value of the '<em><b>Field</b></em>' attribute list.
+	 * The list contents are of type {@link exercise.Field}.
 	 * The literals are from the enumeration {@link exercise.Field}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Field</em>' attribute.
+	 * @return the value of the '<em>Field</em>' attribute list.
 	 * @see exercise.Field
-	 * @see #setField(Field)
 	 * @see exercise.ExercisePackage#getCourseCriteria_Field()
 	 * @model
 	 * @generated
 	 */
-	Field getField();
-
-	/**
-	 * Sets the value of the '{@link exercise.CourseCriteria#getField <em>Field</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Field</em>' attribute.
-	 * @see exercise.Field
-	 * @see #getField()
-	 * @generated
-	 */
-	void setField(Field value);
+	EList<Field> getField();
 
 } // CourseCriteria

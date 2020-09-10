@@ -379,7 +379,7 @@ public interface ExercisePackage extends EPackage {
 	int COURSE_CRITERIA__LEVEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Field</b></em>' attribute.
+	 * The feature id for the '<em><b>Field</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -462,16 +462,6 @@ public interface ExercisePackage extends EPackage {
 	int STUDY_PLAN = 7;
 
 	/**
-	 * The meta object id for the '{@link exercise.impl.StudentImpl <em>Student</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see exercise.impl.StudentImpl
-	 * @see exercise.impl.ExercisePackageImpl#getStudent()
-	 * @generated
-	 */
-	int STUDENT = 8;
-
-	/**
 	 * The meta object id for the '{@link exercise.impl.NTNUImpl <em>NTNU</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -500,22 +490,13 @@ public interface ExercisePackage extends EPackage {
 	int NTNU__STUDY_PLANS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Students</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NTNU__STUDENTS = 2;
-
-	/**
 	 * The number of structural features of the '<em>NTNU</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NTNU_FEATURE_COUNT = 3;
+	int NTNU_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>NTNU</em>' class.
@@ -536,22 +517,13 @@ public interface ExercisePackage extends EPackage {
 	int STUDY_PLAN__PROGRAMME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Student</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN__STUDENT = 1;
-
-	/**
 	 * The number of structural features of the '<em>Study Plan</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_FEATURE_COUNT = 2;
+	int STUDY_PLAN_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Study Plan</em>' class.
@@ -563,33 +535,6 @@ public interface ExercisePackage extends EPackage {
 	int STUDY_PLAN_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Study Plan</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT__STUDY_PLAN = 0;
-
-	/**
-	 * The number of structural features of the '<em>Student</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Student</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link exercise.TimeOfYear <em>Time Of Year</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -597,7 +542,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see exercise.impl.ExercisePackageImpl#getTimeOfYear()
 	 * @generated
 	 */
-	int TIME_OF_YEAR = 9;
+	int TIME_OF_YEAR = 8;
 
 	/**
 	 * The meta object id for the '{@link exercise.Field <em>Field</em>}' enum.
@@ -607,7 +552,7 @@ public interface ExercisePackage extends EPackage {
 	 * @see exercise.impl.ExercisePackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 10;
+	int FIELD = 9;
 
 
 	/**
@@ -903,10 +848,10 @@ public interface ExercisePackage extends EPackage {
 	EAttribute getCourseCriteria_Level();
 
 	/**
-	 * Returns the meta object for the attribute '{@link exercise.CourseCriteria#getField <em>Field</em>}'.
+	 * Returns the meta object for the attribute list '{@link exercise.CourseCriteria#getField <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Field</em>'.
+	 * @return the meta object for the attribute list '<em>Field</em>'.
 	 * @see exercise.CourseCriteria#getField()
 	 * @see #getCourseCriteria()
 	 * @generated
@@ -967,38 +912,6 @@ public interface ExercisePackage extends EPackage {
 	EReference getStudyPlan_Programme();
 
 	/**
-	 * Returns the meta object for the reference '{@link exercise.StudyPlan#getStudent <em>Student</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Student</em>'.
-	 * @see exercise.StudyPlan#getStudent()
-	 * @see #getStudyPlan()
-	 * @generated
-	 */
-	EReference getStudyPlan_Student();
-
-	/**
-	 * Returns the meta object for class '{@link exercise.Student <em>Student</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Student</em>'.
-	 * @see exercise.Student
-	 * @generated
-	 */
-	EClass getStudent();
-
-	/**
-	 * Returns the meta object for the reference '{@link exercise.Student#getStudyPlan <em>Study Plan</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Study Plan</em>'.
-	 * @see exercise.Student#getStudyPlan()
-	 * @see #getStudent()
-	 * @generated
-	 */
-	EReference getStudent_StudyPlan();
-
-	/**
 	 * Returns the meta object for class '{@link exercise.NTNU <em>NTNU</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1018,17 +931,6 @@ public interface ExercisePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNTNU_StudyPlans();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link exercise.NTNU#getStudents <em>Students</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Students</em>'.
-	 * @see exercise.NTNU#getStudents()
-	 * @see #getNTNU()
-	 * @generated
-	 */
-	EReference getNTNU_Students();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link exercise.NTNU#getCourses <em>Courses</em>}'.
@@ -1311,7 +1213,7 @@ public interface ExercisePackage extends EPackage {
 		EAttribute COURSE_CRITERIA__LEVEL = eINSTANCE.getCourseCriteria_Level();
 
 		/**
-		 * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Field</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1363,32 +1265,6 @@ public interface ExercisePackage extends EPackage {
 		EReference STUDY_PLAN__PROGRAMME = eINSTANCE.getStudyPlan_Programme();
 
 		/**
-		 * The meta object literal for the '<em><b>Student</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STUDY_PLAN__STUDENT = eINSTANCE.getStudyPlan_Student();
-
-		/**
-		 * The meta object literal for the '{@link exercise.impl.StudentImpl <em>Student</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see exercise.impl.StudentImpl
-		 * @see exercise.impl.ExercisePackageImpl#getStudent()
-		 * @generated
-		 */
-		EClass STUDENT = eINSTANCE.getStudent();
-
-		/**
-		 * The meta object literal for the '<em><b>Study Plan</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STUDENT__STUDY_PLAN = eINSTANCE.getStudent_StudyPlan();
-
-		/**
 		 * The meta object literal for the '{@link exercise.impl.NTNUImpl <em>NTNU</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1405,14 +1281,6 @@ public interface ExercisePackage extends EPackage {
 		 * @generated
 		 */
 		EReference NTNU__STUDY_PLANS = eINSTANCE.getNTNU_StudyPlans();
-
-		/**
-		 * The meta object literal for the '<em><b>Students</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NTNU__STUDENTS = eINSTANCE.getNTNU_Students();
 
 		/**
 		 * The meta object literal for the '<em><b>Courses</b></em>' containment reference list feature.

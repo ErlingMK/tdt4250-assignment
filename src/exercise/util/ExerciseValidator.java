@@ -103,8 +103,6 @@ public class ExerciseValidator extends EObjectValidator {
 				return validateNTNU((NTNU)value, diagnostics, context);
 			case ExercisePackage.STUDY_PLAN:
 				return validateStudyPlan((StudyPlan)value, diagnostics, context);
-			case ExercisePackage.STUDENT:
-				return validateStudent((Student)value, diagnostics, context);
 			case ExercisePackage.TIME_OF_YEAR:
 				return validateTimeOfYear((TimeOfYear)value, diagnostics, context);
 			case ExercisePackage.FIELD:
@@ -187,6 +185,7 @@ public class ExerciseValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(specialisation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(specialisation, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSpecialisation_semestersMustBeContainedInParentProgramme(specialisation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSpecialisation_durationCantBeLongerThanParentProgrammeDuration(specialisation, diagnostics, context);
 		return result;
 	}
 
@@ -225,12 +224,99 @@ public class ExerciseValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the durationCantBeLongerThanParentProgrammeDuration constraint of '<em>Specialisation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String SPECIALISATION__DURATION_CANT_BE_LONGER_THAN_PARENT_PROGRAMME_DURATION__EEXPRESSION = "self.duration <= self.eContainer().numberOfYears";
+
+	/**
+	 * Validates the durationCantBeLongerThanParentProgrammeDuration constraint of '<em>Specialisation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSpecialisation_durationCantBeLongerThanParentProgrammeDuration(Specialisation specialisation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(ExercisePackage.Literals.SPECIALISATION,
+				 specialisation,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "durationCantBeLongerThanParentProgrammeDuration",
+				 SPECIALISATION__DURATION_CANT_BE_LONGER_THAN_PARENT_PROGRAMME_DURATION__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateSemester(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(semester, diagnostics, context);
+		if (!validate_NoCircularContainment(semester, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(semester, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSemester_courseGroupsMustContainMandatoryCourses(semester, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the courseGroupsMustContainMandatoryCourses constraint of '<em>Semester</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateSemester_courseGroupsMustContainMandatoryCourses(Semester semester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean isValid = false; 
+		
+		EList<CourseGroup> courseGroups = semester.getCourseGroups();
+		EList<String> mandatoryCourses = semester.getMandatoryCourses();
+		
+		for (String mandatoryCourse : mandatoryCourses) {
+			boolean courseExists = false;
+			
+			for (CourseGroup group : courseGroups) {
+				if (courseExists) break;
+				EList<Course> courses = group.getCourses();
+				
+				for (Course course : courses) {
+					if (course.getCode().equals(mandatoryCourse)) {
+						courseExists = true;
+						break;
+					}
+				}
+			}
+			isValid = courseExists;
+		}
+		
+		
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (isValid) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "courseGroupsMustContainMandatoryCourses", getObjectLabel(semester, context) },
+						 new Object[] { semester },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -258,15 +344,6 @@ public class ExerciseValidator extends EObjectValidator {
 	 */
 	public boolean validateStudyPlan(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(studyPlan, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateStudent(Student student, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(student, diagnostics, context);
 	}
 
 	/**

@@ -22,7 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see exercise.ExercisePackage#getSpecialisation()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='semestersMustBeContainedInParentProgramme'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='semestersMustBeContainedInParentProgramme durationCantBeLongerThanParentProgrammeDuration'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 durationCantBeLongerThanParentProgrammeDuration='self.duration &lt;= self.eContainer().numberOfYears'"
  * @generated
  */
 public interface Specialisation extends EObject {

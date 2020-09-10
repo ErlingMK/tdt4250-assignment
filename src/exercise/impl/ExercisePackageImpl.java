@@ -11,7 +11,6 @@ import exercise.Field;
 import exercise.Programme;
 import exercise.Semester;
 import exercise.Specialisation;
-import exercise.Student;
 import exercise.StudyPlan;
 import exercise.TimeOfYear;
 
@@ -80,13 +79,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * @generated
 	 */
 	private EClass studyPlanEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass studentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -481,33 +473,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStudyPlan_Student() {
-		return (EReference)studyPlanEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getStudent() {
-		return studentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getStudent_StudyPlan() {
-		return (EReference)studentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNTNU() {
 		return ntnuEClass;
 	}
@@ -519,15 +484,6 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 	 */
 	public EReference getNTNU_StudyPlans() {
 		return (EReference)ntnuEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNTNU_Students() {
-		return (EReference)ntnuEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -624,14 +580,9 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		ntnuEClass = createEClass(NTNU);
 		createEReference(ntnuEClass, NTNU__COURSES);
 		createEReference(ntnuEClass, NTNU__STUDY_PLANS);
-		createEReference(ntnuEClass, NTNU__STUDENTS);
 
 		studyPlanEClass = createEClass(STUDY_PLAN);
 		createEReference(studyPlanEClass, STUDY_PLAN__PROGRAMME);
-		createEReference(studyPlanEClass, STUDY_PLAN__STUDENT);
-
-		studentEClass = createEClass(STUDENT);
-		createEReference(studentEClass, STUDENT__STUDY_PLAN);
 
 		// Create enums
 		timeOfYearEEnum = createEEnum(TIME_OF_YEAR);
@@ -698,7 +649,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 
 		initEClass(courseCriteriaEClass, CourseCriteria.class, "CourseCriteria", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourseCriteria_Level(), ecorePackage.getEInt(), "level", null, 0, 1, CourseCriteria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCourseCriteria_Field(), this.getField(), "field", null, 0, 1, CourseCriteria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourseCriteria_Field(), this.getField(), "field", null, 0, -1, CourseCriteria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseGroupEClass, CourseGroup.class, "CourseGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCourseGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, CourseGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -707,14 +658,9 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		initEClass(ntnuEClass, exercise.NTNU.class, "NTNU", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNTNU_Courses(), this.getCourse(), null, "courses", null, 0, -1, exercise.NTNU.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNTNU_StudyPlans(), this.getStudyPlan(), null, "studyPlans", null, 0, -1, exercise.NTNU.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNTNU_Students(), this.getStudent(), null, "students", null, 0, -1, exercise.NTNU.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(studyPlanEClass, StudyPlan.class, "StudyPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStudyPlan_Programme(), this.getProgramme(), null, "programme", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStudyPlan_Student(), this.getStudent(), this.getStudent_StudyPlan(), "student", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(studentEClass, Student.class, "Student", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStudent_StudyPlan(), this.getStudyPlan(), this.getStudyPlan_Student(), "studyPlan", null, 0, 1, Student.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeOfYearEEnum, TimeOfYear.class, "TimeOfYear");
@@ -760,7 +706,13 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		  (specialisationEClass,
 		   source,
 		   new String[] {
-			   "constraints", "semestersMustBeContainedInParentProgramme"
+			   "constraints", "semestersMustBeContainedInParentProgramme durationCantBeLongerThanParentProgrammeDuration"
+		   });
+		addAnnotation
+		  (semesterEClass,
+		   source,
+		   new String[] {
+			   "constraints", "courseGroupsMustContainMandatoryCourses"
 		   });
 	}
 
@@ -777,6 +729,12 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		   source,
 		   new String[] {
 			   "validateMaxNumberOfSemesters", "self.semesters->size() <= self.numberOfYears*2"
+		   });
+		addAnnotation
+		  (specialisationEClass,
+		   source,
+		   new String[] {
+			   "durationCantBeLongerThanParentProgrammeDuration", "self.duration <= self.eContainer().numberOfYears"
 		   });
 	}
 

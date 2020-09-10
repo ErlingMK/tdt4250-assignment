@@ -6,12 +6,15 @@ import exercise.CourseCriteria;
 import exercise.ExercisePackage;
 
 import exercise.Field;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,24 +52,14 @@ public class CourseCriteriaImpl extends MinimalEObjectImpl.Container implements 
 	protected int level = LEVEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getField() <em>Field</em>}' attribute.
+	 * The cached value of the '{@link #getField() <em>Field</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getField()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Field FIELD_EDEFAULT = Field.DATATEKNIKK_OG_INFORMASJONSVITENSKAP;
-
-	/**
-	 * The cached value of the '{@link #getField() <em>Field</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getField()
-	 * @generated
-	 * @ordered
-	 */
-	protected Field field = FIELD_EDEFAULT;
+	protected EList<Field> field;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,20 +106,11 @@ public class CourseCriteriaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Field getField() {
+	public EList<Field> getField() {
+		if (field == null) {
+			field = new EDataTypeUniqueEList<Field>(Field.class, this, ExercisePackage.COURSE_CRITERIA__FIELD);
+		}
 		return field;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setField(Field newField) {
-		Field oldField = field;
-		field = newField == null ? FIELD_EDEFAULT : newField;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExercisePackage.COURSE_CRITERIA__FIELD, oldField, field));
 	}
 
 	/**
@@ -150,6 +134,7 @@ public class CourseCriteriaImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -157,7 +142,8 @@ public class CourseCriteriaImpl extends MinimalEObjectImpl.Container implements 
 				setLevel((Integer)newValue);
 				return;
 			case ExercisePackage.COURSE_CRITERIA__FIELD:
-				setField((Field)newValue);
+				getField().clear();
+				getField().addAll((Collection<? extends Field>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,7 +161,7 @@ public class CourseCriteriaImpl extends MinimalEObjectImpl.Container implements 
 				setLevel(LEVEL_EDEFAULT);
 				return;
 			case ExercisePackage.COURSE_CRITERIA__FIELD:
-				setField(FIELD_EDEFAULT);
+				getField().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,7 +178,7 @@ public class CourseCriteriaImpl extends MinimalEObjectImpl.Container implements 
 			case ExercisePackage.COURSE_CRITERIA__LEVEL:
 				return level != LEVEL_EDEFAULT;
 			case ExercisePackage.COURSE_CRITERIA__FIELD:
-				return field != FIELD_EDEFAULT;
+				return field != null && !field.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

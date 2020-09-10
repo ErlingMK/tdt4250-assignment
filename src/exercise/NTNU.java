@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link exercise.NTNU#getCourses <em>Courses</em>}</li>
  *   <li>{@link exercise.NTNU#getStudyPlans <em>Study Plans</em>}</li>
- *   <li>{@link exercise.NTNU#getStudents <em>Students</em>}</li>
  * </ul>
  *
  * @see exercise.ExercisePackage#getNTNU()
@@ -36,18 +35,6 @@ public interface NTNU extends EObject {
 	 * @generated
 	 */
 	EList<StudyPlan> getStudyPlans();
-
-	/**
-	 * Returns the value of the '<em><b>Students</b></em>' containment reference list.
-	 * The list contents are of type {@link exercise.Student}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Students</em>' containment reference list.
-	 * @see exercise.ExercisePackage#getNTNU_Students()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Student> getStudents();
 
 	/**
 	 * Returns the value of the '<em><b>Courses</b></em>' containment reference list.
