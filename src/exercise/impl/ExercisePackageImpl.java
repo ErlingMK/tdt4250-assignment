@@ -712,7 +712,7 @@ public class ExercisePackageImpl extends EPackageImpl implements ExercisePackage
 		  (semesterEClass,
 		   source,
 		   new String[] {
-			   "constraints", "courseGroupsMustContainMandatoryCourses"
+			   "constraints", "courseGroupsMustContainMandatoryCourses coursesMustFulfillCourseCriteria"
 		   });
 	}
 

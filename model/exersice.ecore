@@ -43,7 +43,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Semester">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="courseGroupsMustContainMandatoryCourses"/>
+      <details key="constraints" value="courseGroupsMustContainMandatoryCourses coursesMustFulfillCourseCriteria"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeOfYear" lowerBound="1"
         eType="#//TimeOfYear"/>
